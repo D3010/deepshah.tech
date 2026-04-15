@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Deep Shah portrait placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5b4fc"/>
+      <stop offset="100%" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="#0a0a0f"/>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <text x="300" y="320" text-anchor="middle" fill="url(#text)"
+        font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="180"
+        letter-spacing="-6">DS</text>
+  <text x="300" y="380" text-anchor="middle" fill="#94a3b8"
+        font-family="Inter, system-ui, sans-serif" font-size="22" letter-spacing="4">PHOTO PLACEHOLDER</text>
+</svg>
