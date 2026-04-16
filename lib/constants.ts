@@ -53,9 +53,7 @@ export const SITE = {
   location: "United States",
   // TODO: Replace with actual content
   resumeUrl: "/resume.pdf",
-  // TODO: Replace with actual photo. Drop deep-shah.jpg into /public/images/
-  // and change this to "/images/deep-shah.jpg".
-  photoUrl: "/images/deep-shah.svg",
+  photoUrl: "/images/deep-shah.jpeg",
   ogImage: "/icons/og-image.svg",
 };
 
