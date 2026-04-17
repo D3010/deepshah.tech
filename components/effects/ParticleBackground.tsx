@@ -33,12 +33,12 @@ export function ParticleBackground() {
         },
       },
       particles: {
-        color: { value: ["#6366f1", "#06b6d4", "#818cf8"] },
+        color: { value: ["#a855f7", "#22d3ee", "#f59e0b", "#c084fc"] },
         links: {
-          color: "#6366f1",
+          color: "#a855f7",
           distance: 140,
           enable: true,
-          opacity: 0.18,
+          opacity: 0.2,
           width: 1,
         },
         move: {

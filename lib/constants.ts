@@ -70,10 +70,52 @@ export const NAV_LINKS = [
 export const HERO = {
   eyebrow: "AI Engineer · Automation Expert",
   name: "Deep Shah",
+  roles: [
+    "AI Engineer",
+    "LLM Systems",
+    "Agent Builder",
+    "Automation Architect",
+  ],
   // TODO: Replace with actual content
   bio: "I build AI-powered products and automation pipelines that turn messy, manual work into measurable outcomes — from LLM agents and RAG systems to end-to-end workflow orchestration.",
   primaryCta: { label: "View My Work", href: "#projects" },
-  secondaryCta: { label: "Download Resume", href: "/resume.pdf" },
+  secondaryCta: { label: "Get in Touch", href: "#contact" },
+  trust: [
+    "Shipping since 2020",
+    "Remote · United States",
+    "Open to select engagements",
+  ],
+  // Icons shown in the hero marquee strip + orbital chips
+  orbitIcons: [
+    { name: "OpenAI", Icon: SiOpenai },
+    { name: "LangChain", Icon: SiLangchain },
+    { name: "Python", Icon: SiPython },
+    { name: "Next.js", Icon: SiNextdotjs },
+    { name: "PyTorch", Icon: SiPytorch },
+    { name: "AWS", Icon: SiAmazonwebservices },
+  ] as { name: string; Icon: IconType }[],
+  marqueeIcons: [
+    { name: "OpenAI", Icon: SiOpenai },
+    { name: "LangChain", Icon: SiLangchain },
+    { name: "Hugging Face", Icon: SiHuggingface },
+    { name: "PyTorch", Icon: SiPytorch },
+    { name: "TensorFlow", Icon: SiTensorflow },
+    { name: "Python", Icon: SiPython },
+    { name: "FastAPI", Icon: SiFastapi },
+    { name: "Next.js", Icon: SiNextdotjs },
+    { name: "React", Icon: SiReact },
+    { name: "TypeScript", Icon: SiTypescript },
+    { name: "Node.js", Icon: SiNodedotjs },
+    { name: "Postgres", Icon: SiPostgresql },
+    { name: "Redis", Icon: SiRedis },
+    { name: "Docker", Icon: SiDocker },
+    { name: "Kubernetes", Icon: SiKubernetes },
+    { name: "AWS", Icon: SiAmazonwebservices },
+    { name: "Vercel", Icon: SiVercel },
+    { name: "n8n", Icon: SiN8N },
+    { name: "Zapier", Icon: SiZapier },
+    { name: "Tailwind", Icon: SiTailwindcss },
+  ] as { name: string; Icon: IconType }[],
   stats: [
     // TODO: Replace with actual content
     { value: 50, suffix: "+", label: "Projects Shipped" },
