@@ -34,7 +34,7 @@ export function KonamiEasterEgg() {
             spread: 70,
             ticks: 200,
             origin,
-            colors: ["#6366f1", "#06b6d4", "#818cf8", "#22d3ee", "#ffffff"],
+            colors: ["#10b981", "#f43f5e", "#fbbf24", "#34d399", "#ffffff"],
             disableForReducedMotion: true,
           });
         burst({ x: 0.2, y: 0.6 });

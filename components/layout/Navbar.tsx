@@ -154,7 +154,7 @@ function Logo() {
     >
       <span className="relative grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/[0.04] font-heading text-sm font-bold">
         <span className="text-gradient-strong">DS</span>
-        <span className="absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:linear-gradient(135deg,rgba(99,102,241,0.4),rgba(6,182,212,0.4))] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] [mask-composite:exclude] p-px" />
+        <span className="absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:linear-gradient(135deg,rgba(16,185,129,0.45),rgba(244,63,94,0.45))] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] [mask-composite:exclude] p-px" />
       </span>
       <span className="hidden text-sm font-medium text-fg sm:inline">
         {SITE.name}

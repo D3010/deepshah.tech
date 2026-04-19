@@ -9,23 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#07050d",
-        surface: "#0e0a17",
-        "surface-2": "#14101f",
+        background: "#030a14",
+        surface: "#071422",
+        "surface-2": "#0c1e2f",
         border: "rgba(255,255,255,0.08)",
         primary: {
-          DEFAULT: "#a855f7",
-          50: "#faf5ff",
-          400: "#c084fc",
-          500: "#a855f7",
-          600: "#9333ea",
-          700: "#7e22ce",
+          DEFAULT: "#10b981",
+          50: "#ecfdf5",
+          400: "#34d399",
+          500: "#10b981",
+          600: "#059669",
+          700: "#047857",
         },
         secondary: {
-          DEFAULT: "#06b6d4",
-          400: "#22d3ee",
-          500: "#06b6d4",
-          600: "#0891b2",
+          DEFAULT: "#f43f5e",
+          400: "#fb7185",
+          500: "#f43f5e",
+          600: "#e11d48",
         },
         accent: {
           DEFAULT: "#f59e0b",
@@ -33,8 +33,8 @@ const config: Config = {
           500: "#f59e0b",
           600: "#d97706",
         },
-        muted: "#9aa1b2",
-        fg: "#f5f3ff",
+        muted: "#93a1b8",
+        fg: "#f1f5f9",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -56,19 +56,19 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-brand":
-          "linear-gradient(120deg, #a855f7 0%, #22d3ee 55%, #f59e0b 100%)",
+          "linear-gradient(120deg, #10b981 0%, #f43f5e 55%, #fbbf24 100%)",
         "gradient-brand-soft":
-          "linear-gradient(120deg, rgba(168,85,247,0.15) 0%, rgba(34,211,238,0.15) 55%, rgba(245,158,11,0.15) 100%)",
+          "linear-gradient(120deg, rgba(16,185,129,0.15) 0%, rgba(244,63,94,0.15) 55%, rgba(251,191,36,0.15) 100%)",
         "gradient-radial":
-          "radial-gradient(circle at 50% 0%, rgba(168,85,247,0.22), transparent 60%)",
+          "radial-gradient(circle at 50% 0%, rgba(16,185,129,0.22), transparent 60%)",
         "noise":
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        glow: "0 0 40px -10px rgba(168,85,247,0.45)",
-        "glow-lg": "0 0 90px -10px rgba(34,211,238,0.55)",
-        "glow-cyan": "0 0 40px -10px rgba(34,211,238,0.45)",
-        "glow-amber": "0 0 40px -10px rgba(245,158,11,0.45)",
+        glow: "0 0 40px -10px rgba(16,185,129,0.55)",
+        "glow-lg": "0 0 90px -10px rgba(244,63,94,0.55)",
+        "glow-cyan": "0 0 40px -10px rgba(244,63,94,0.5)",
+        "glow-amber": "0 0 40px -10px rgba(251,191,36,0.5)",
         "inner-glow": "inset 0 1px 0 0 rgba(255,255,255,0.06)",
       },
       keyframes: {

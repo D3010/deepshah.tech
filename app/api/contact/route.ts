@@ -54,8 +54,8 @@ export async function POST(req: Request) {
       subject: `[Portfolio] ${subject} — ${name}`,
       text: `From: ${name} <${email}>\nSubject: ${subject}\n\n${message}`,
       html: `
-        <div style="font-family: Inter, system-ui, sans-serif; max-width: 560px; margin: auto; padding: 24px; background: #0a0a0f; color: #f8fafc; border-radius: 12px;">
-          <h2 style="margin: 0 0 16px; background: linear-gradient(135deg,#6366f1,#06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent;">New portfolio inquiry</h2>
+        <div style="font-family: Inter, system-ui, sans-serif; max-width: 560px; margin: auto; padding: 24px; background: #030a14; color: #f1f5f9; border-radius: 12px;">
+          <h2 style="margin: 0 0 16px; background: linear-gradient(135deg,#10b981,#f43f5e); -webkit-background-clip: text; background-clip: text; color: transparent;">New portfolio inquiry</h2>
           <p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
           <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
           <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 16px 0;" />
