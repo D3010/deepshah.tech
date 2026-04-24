@@ -41,7 +41,7 @@ export default function WritingIndexPage() {
             </p>
           </div>
 
-          <ul className="flex flex-col divide-y divide-white/[0.06] border-y border-white/[0.06]">
+          <ul className="flex flex-col divide-y divide-black/[0.08] border-y border-black/[0.08]">
             {ARTICLES.map((a) => (
               <li key={a.slug}>
                 <article className="group flex flex-col gap-2 py-8 sm:flex-row sm:items-center sm:justify-between sm:gap-8">

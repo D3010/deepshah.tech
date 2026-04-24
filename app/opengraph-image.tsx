@@ -16,10 +16,10 @@ export default async function OgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px 96px",
-          background: "#0a0a0a",
+          background: "#ffffff",
           backgroundImage:
-            "radial-gradient(ellipse 70% 60% at 30% 35%, rgba(255,61,127,0.35), transparent 65%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(124,92,255,0.3), transparent 70%)",
-          color: "#f5f5f5",
+            "radial-gradient(ellipse 70% 60% at 30% 35%, rgba(255,61,127,0.18), transparent 65%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(124,92,255,0.16), transparent 70%)",
+          color: "#0a0a0a",
           fontFamily: "Inter, system-ui, sans-serif",
         }}
       >
@@ -28,7 +28,7 @@ export default async function OgImage() {
             display: "flex",
             fontSize: 22,
             letterSpacing: 4,
-            color: "rgba(245,245,245,0.55)",
+            color: "rgba(10,10,10,0.55)",
             textTransform: "uppercase",
             fontFamily: "monospace",
           }}
@@ -65,7 +65,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 26,
-              color: "rgba(245,245,245,0.65)",
+              color: "rgba(10,10,10,0.65)",
               maxWidth: 820,
               lineHeight: 1.4,
             }}

@@ -8,7 +8,7 @@ export function TechMarquee() {
   return (
     <section
       aria-label="Tools and technologies I use"
-      className="relative border-y border-white/[0.05] bg-white/[0.01] py-10"
+      className="relative border-y border-black/[0.08] bg-surface py-10"
     >
       <div className="mask-fade-x overflow-hidden">
         <div className="pause-on-hover flex w-max items-center gap-12 will-change-transform">

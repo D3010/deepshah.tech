@@ -62,7 +62,7 @@ export function Projects() {
             aria-label="Previous project"
             data-cursor="link"
             onClick={() => scrollBy(-1)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-muted transition hover:border-white/24 hover:text-fg"
+            className="grid h-11 w-11 place-items-center rounded-full border border-black/[0.14] bg-transparent text-fg/60 transition hover:border-black/[0.28] hover:text-fg"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -71,7 +71,7 @@ export function Projects() {
             aria-label="Next project"
             data-cursor="link"
             onClick={() => scrollBy(1)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-muted transition hover:border-white/24 hover:text-fg"
+            className="grid h-11 w-11 place-items-center rounded-full border border-black/[0.14] bg-transparent text-fg/60 transition hover:border-black/[0.28] hover:text-fg"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
@@ -105,7 +105,7 @@ export function Projects() {
 function ProjectCard({ project }: { project: Project }) {
   const accent = project.accent ?? "magenta";
   return (
-    <article className="group relative flex h-full min-h-[520px] flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-surface-2 transition-colors duration-500 hover:border-white/[0.16]">
+    <article className="group relative flex h-full min-h-[520px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-surface transition-colors duration-500 hover:border-black/[0.16]">
       <div
         aria-hidden
         className="relative aspect-[16/10] w-full overflow-hidden"

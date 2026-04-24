@@ -51,7 +51,7 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
           scrolled
-            ? "border-b border-white/[0.06] bg-background/65 backdrop-blur-xl"
+            ? "border-b border-black/[0.08] bg-background/72 backdrop-blur-xl"
             : "bg-transparent",
         )}
         style={{ height: "var(--nav-h)" }}
@@ -100,7 +100,7 @@ export function Navbar() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((o) => !o)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-fg md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/[0.04] text-fg md:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>

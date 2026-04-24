@@ -19,7 +19,7 @@ const variantClasses: Record<Variant, string> = {
   primary:
     "text-white shadow-glow hover:shadow-glow-lg [background:var(--accent-gradient)]",
   outline:
-    "border border-white/[0.12] bg-white/[0.02] text-fg hover:border-white/[0.24] hover:bg-white/[0.05]",
+    "border border-black/[0.14] bg-transparent text-fg hover:border-black/[0.28] hover:bg-black/[0.04]",
   ghost: "text-fg/80 hover:text-fg",
 };
 

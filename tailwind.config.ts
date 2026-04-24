@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark void canvas — never pure black
-        background: "#0a0a0a",
-        surface: "#111111",
-        "surface-2": "#161616",
-        border: "rgba(255,255,255,0.08)",
+        // Light canvas — pure white with warm off-white surfaces
+        background: "#ffffff",
+        surface: "#fafaf8",
+        "surface-2": "#f5f3ee",
+        border: "rgba(10,10,10,0.08)",
         // Coral / magenta / violet — the signature accent spectrum
         primary: {
           DEFAULT: "#ff3d7f",
@@ -35,8 +35,8 @@ const config: Config = {
           500: "#7c5cff",
           600: "#5f3fe0",
         },
-        muted: "rgba(245,245,245,0.42)",
-        fg: "#f5f5f5",
+        muted: "rgba(10,10,10,0.48)",
+        fg: "#0a0a0a",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -67,11 +67,11 @@ const config: Config = {
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(255,61,127,0.25)",
-        "glow-lg": "0 0 80px rgba(255,61,127,0.35)",
-        "glow-cyan": "0 0 40px rgba(124,92,255,0.3)",
-        "glow-amber": "0 0 40px rgba(255,107,74,0.3)",
-        "inner-glow": "inset 0 1px 0 0 rgba(255,255,255,0.06)",
+        glow: "0 8px 32px rgba(255,61,127,0.22), 0 2px 6px rgba(255,61,127,0.18)",
+        "glow-lg": "0 16px 56px rgba(255,61,127,0.28), 0 4px 10px rgba(255,61,127,0.22)",
+        "glow-cyan": "0 8px 32px rgba(124,92,255,0.22)",
+        "glow-amber": "0 8px 32px rgba(255,107,74,0.22)",
+        "inner-glow": "inset 0 1px 0 0 rgba(255,255,255,0.6)",
       },
       keyframes: {
         float: {

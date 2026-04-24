@@ -53,7 +53,7 @@ export function Writing() {
             <motion.article
               key={a.slug}
               variants={fadeUp}
-              className="group relative flex flex-col gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 transition-colors duration-500 hover:border-white/[0.16]"
+              className="group relative flex flex-col gap-4 rounded-2xl border border-black/[0.08] bg-surface p-7 transition-colors duration-500 hover:border-black/[0.18]"
             >
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
                 {formatDate(a.date)} · {a.readingMinutes} min read

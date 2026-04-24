@@ -7,7 +7,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/[0.06] bg-background pt-20">
+    <footer className="relative overflow-hidden border-t border-black/[0.08] bg-background pt-20">
       <div className="container-page grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
         <div className="flex flex-col gap-3">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
@@ -80,7 +80,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-page mt-20 flex flex-col items-start justify-between gap-3 border-t border-white/[0.05] pt-8 text-xs text-muted md:flex-row md:items-center">
+      <div className="container-page mt-20 flex flex-col items-start justify-between gap-3 border-t border-black/[0.06] pt-8 text-xs text-muted md:flex-row md:items-center">
         <p>
           © {year} {SITE.fullName}.
         </p>
@@ -96,7 +96,7 @@ export function Footer() {
         <p
           className="-mb-[0.18em] whitespace-nowrap text-center font-medium leading-[0.85] tracking-[-0.05em]"
           style={{
-            color: "rgba(245,245,245,0.05)",
+            color: "rgba(10,10,10,0.06)",
             fontSize: "clamp(5rem, 18vw, 14rem)",
           }}
         >

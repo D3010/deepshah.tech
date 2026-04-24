@@ -49,7 +49,7 @@ export function About() {
 
           <motion.ul
             variants={fadeUp}
-            className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] sm:grid-cols-3"
+            className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.05] sm:grid-cols-3"
           >
             {ABOUT.stats.map((s) => (
               <li

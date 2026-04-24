@@ -32,7 +32,7 @@ export function Experience() {
           </motion.h2>
         </motion.div>
 
-        <ol className="relative mx-auto max-w-4xl border-l border-white/[0.08] pl-8 md:pl-12">
+        <ol className="relative mx-auto max-w-4xl border-l border-black/[0.10] pl-8 md:pl-12">
           {EXPERIENCE.map((entry, i) => (
             <motion.li
               key={`${entry.company}-${entry.start}`}

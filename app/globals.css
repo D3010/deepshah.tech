@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== Design tokens — Antigravity-inspired dark void with warm accent ===== */
+/* ===== Design tokens — light theme on white with warm accent ===== */
 :root {
-  --bg-void: #0a0a0a;
-  --bg-elevated: #111111;
-  --bg-card: #161616;
+  --bg-void: #ffffff;
+  --bg-elevated: #fafaf8;
+  --bg-card: #f5f3ee;
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-emphasis: rgba(255, 255, 255, 0.14);
+  --border-subtle: rgba(10, 10, 10, 0.08);
+  --border-emphasis: rgba(10, 10, 10, 0.16);
 
-  --text-primary: #f5f5f5;
-  --text-secondary: rgba(245, 245, 245, 0.65);
-  --text-muted: rgba(245, 245, 245, 0.42);
+  --text-primary: #0a0a0a;
+  --text-secondary: rgba(10, 10, 10, 0.68);
+  --text-muted: rgba(10, 10, 10, 0.48);
 
   --accent-start: #ff6b4a;
   --accent-mid: #ff3d7f;
@@ -77,8 +77,8 @@
   }
 
   ::selection {
-    background: rgba(255, 61, 127, 0.4);
-    color: #fff;
+    background: rgba(255, 61, 127, 0.22);
+    color: #0a0a0a;
   }
 
   ::-webkit-scrollbar {
@@ -89,11 +89,11 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 10, 0.12);
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(10, 10, 10, 0.22);
   }
 
   h1,
@@ -166,8 +166,8 @@
   .glass {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.03) 0%,
-      rgba(255, 255, 255, 0.01) 100%
+      rgba(10, 10, 10, 0.025) 0%,
+      rgba(10, 10, 10, 0.01) 100%
     );
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -175,7 +175,7 @@
   }
 
   .glass-strong {
-    background: rgba(10, 10, 10, 0.72);
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
     border: 1px solid var(--border-subtle);
@@ -197,8 +197,8 @@
     inset: 0;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    mix-blend-mode: overlay;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
   }
 
   .gradient-border {
@@ -242,7 +242,7 @@
 
   .bg-dots {
     background-image: radial-gradient(
-      rgba(255, 255, 255, 0.08) 1px,
+      rgba(10, 10, 10, 0.08) 1px,
       transparent 1px
     );
     background-size: 22px 22px;

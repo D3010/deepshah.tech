@@ -21,14 +21,21 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 45%, rgba(255,61,127,0.18), transparent 65%)",
+              "radial-gradient(ellipse 70% 50% at 30% 35%, rgba(255,61,127,0.10), transparent 65%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 50% 90%, rgba(124,92,255,0.16), transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 80% 80%, rgba(124,92,255,0.10), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,107,74,0.06), transparent 70%)",
           }}
         />
       </div>

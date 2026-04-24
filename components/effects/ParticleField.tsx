@@ -104,7 +104,8 @@ export function ParticleField({ className }: { className?: string }) {
     const tick = (t: number) => {
       rotation = t * 0.00006;
       ctx.clearRect(0, 0, width, height);
-      ctx.globalCompositeOperation = "lighter";
+      // multiply makes colored particles appear as ink-on-paper on a white canvas
+      ctx.globalCompositeOperation = "multiply";
 
       for (const p of particles) {
         const ringSpin = (p.ringIdx % 2 === 0 ? 1 : -1) * (0.12 + p.ringIdx * 0.04);
@@ -130,18 +131,18 @@ export function ParticleField({ className }: { className?: string }) {
         p.x += p.vx;
         p.y += p.vy;
 
-        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 8);
-        grad.addColorStop(0, `hsla(${p.hue}, 95%, 65%, 0.95)`);
-        grad.addColorStop(0.4, `hsla(${p.hue}, 90%, 55%, 0.35)`);
-        grad.addColorStop(1, `hsla(${p.hue}, 90%, 50%, 0)`);
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 9);
+        grad.addColorStop(0, `hsla(${p.hue}, 90%, 55%, 0.55)`);
+        grad.addColorStop(0.45, `hsla(${p.hue}, 88%, 60%, 0.18)`);
+        grad.addColorStop(1, `hsla(${p.hue}, 90%, 70%, 0)`);
         ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 8, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 9, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = `hsla(${p.hue}, 100%, 80%, 0.9)`;
+        ctx.fillStyle = `hsla(${p.hue}, 95%, 45%, 0.55)`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 0.9, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -157,11 +158,11 @@ export function ParticleField({ className }: { className?: string }) {
       window.addEventListener("pointerleave", onPointerLeave);
       rafRef.current = requestAnimationFrame(tick);
     } else {
-      ctx.globalCompositeOperation = "lighter";
+      ctx.globalCompositeOperation = "multiply";
       for (const p of particles) {
-        ctx.fillStyle = `hsla(${p.hue}, 100%, 75%, 0.7)`;
+        ctx.fillStyle = `hsla(${p.hue}, 90%, 50%, 0.45)`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 1.2, 0, Math.PI * 2);
         ctx.fill();
       }
     }

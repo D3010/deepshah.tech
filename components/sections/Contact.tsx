@@ -36,7 +36,7 @@ export function Contact() {
 
           <motion.ul
             variants={fadeUp}
-            className="flex flex-col divide-y divide-white/[0.06] border-y border-white/[0.06]"
+            className="flex flex-col divide-y divide-black/[0.08] border-y border-black/[0.08]"
           >
             {CONTACT.rows.map((row) => (
               <ContactRow key={row.label} {...row} />
