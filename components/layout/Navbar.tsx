@@ -1,20 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useScroll } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 import { cn, scrollToId } from "@/lib/utils";
 
 export function Navbar() {
+  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { scrollY } = useScroll();
+  const lastY = useRef(0);
 
   useEffect(() => {
-    return scrollY.on("change", (y) => setScrolled(y > 24));
-  }, [scrollY]);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      const dy = y - lastY.current;
+      if (Math.abs(dy) > 6) {
+        setHidden(dy > 0 && y > 120);
+        lastY.current = y;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -34,18 +46,25 @@ export function Navbar() {
     <>
       <motion.header
         initial={{ y: -32, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        animate={{ y: hidden ? -90 : 0, opacity: 1 }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-700",
+          "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
           scrolled
-            ? "border-b border-accent/[0.06] glass-strong backdrop-saturate-150"
-            : "bg-transparent"
+            ? "border-b border-white/[0.06] bg-background/65 backdrop-blur-xl"
+            : "bg-transparent",
         )}
         style={{ height: "var(--nav-h)" }}
       >
-        <div className="container-page flex h-full items-center justify-between">
-          <Logo />
+        <div className="container-page flex h-full items-center justify-between gap-6">
+          <Link
+            href="/"
+            data-cursor="link"
+            className="text-base font-semibold tracking-tight text-fg"
+            aria-label={`${SITE.name} — home`}
+          >
+            {SITE.name}
+          </Link>
 
           <nav aria-label="Primary" className="hidden md:block">
             <ul className="flex items-center gap-1">
@@ -55,7 +74,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => handleNav(link.href)}
                     data-cursor="link"
-                    className="rounded-full px-4 py-2 text-sm text-muted transition-colors duration-500 hover:text-fg"
+                    className="rounded-full px-4 py-2 text-sm text-fg/65 transition-colors duration-300 hover:text-fg"
                   >
                     {link.label}
                   </button>
@@ -65,22 +84,23 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => handleNav("#contact")}
-              data-cursor="link"
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium text-fg gradient-border transition-all duration-500 hover:bg-accent/[0.05] hover:shadow-glow"
-            >
-              Hire Me
-              <ArrowUpRight className="h-4 w-4" />
-            </button>
+            <div className="hidden md:block">
+              <MagneticButton
+                as="button"
+                variant="primary"
+                size="md"
+                onClick={() => handleNav("#contact")}
+              >
+                Let&apos;s talk
+              </MagneticButton>
+            </div>
 
             <button
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((o) => !o)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accent/10 bg-accent/[0.04] text-fg md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-fg md:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -99,66 +119,55 @@ export function Navbar() {
             className="fixed inset-0 z-40 md:hidden"
           >
             <div className="absolute inset-0 bg-background/95 backdrop-blur-2xl" />
-            <motion.nav
+            <nav
               aria-label="Mobile"
-              className="relative flex h-full flex-col items-center justify-center gap-2 px-8"
+              className="relative flex h-full flex-col items-center justify-center gap-6 px-8"
             >
-              <ul className="flex flex-col items-center gap-4">
+              <ul className="flex flex-col items-center gap-5">
                 {NAV_LINKS.map((link, i) => (
                   <motion.li
                     key={link.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{
+                      delay: 0.1 + i * 0.07,
+                      duration: 0.5,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                   >
                     <button
                       type="button"
                       onClick={() => handleNav(link.href)}
-                      className="text-3xl font-semibold tracking-tight text-fg transition-colors hover:text-gradient"
+                      className="text-3xl font-medium tracking-tight text-fg"
                     >
                       {link.label}
                     </button>
                   </motion.li>
                 ))}
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + NAV_LINKS.length * 0.07, duration: 0.5 }}
-                  className="mt-4"
-                >
-                  <button
-                    type="button"
-                    onClick={() => handleNav("#contact")}
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-medium text-white shadow-glow"
-                  >
-                    Hire Me <ArrowUpRight className="h-4 w-4" />
-                  </button>
-                </motion.li>
               </ul>
-              <p className="absolute bottom-8 text-xs text-muted">{SITE.email}</p>
-            </motion.nav>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.1 + NAV_LINKS.length * 0.07,
+                  duration: 0.5,
+                }}
+              >
+                <MagneticButton
+                  as="button"
+                  variant="primary"
+                  onClick={() => handleNav("#contact")}
+                >
+                  Let&apos;s talk
+                </MagneticButton>
+              </motion.div>
+              <p className="absolute bottom-8 font-mono text-xs uppercase tracking-[0.18em] text-muted">
+                {SITE.email}
+              </p>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-function Logo() {
-  return (
-    <Link
-      href="/"
-      data-cursor="link"
-      className="group flex items-center gap-2.5"
-      aria-label="Deep Shah — home"
-    >
-      <span className="relative grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/[0.04] font-heading text-sm font-bold">
-        <span className="text-gradient-strong">DS</span>
-        <span className="absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:linear-gradient(135deg,rgba(16,185,129,0.45),rgba(244,63,94,0.45))] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] [mask-composite:exclude] p-px" />
-      </span>
-      <span className="hidden text-sm font-medium text-fg sm:inline">
-        {SITE.name}
-      </span>
-    </Link>
   );
 }

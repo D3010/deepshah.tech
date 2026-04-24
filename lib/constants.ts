@@ -1,214 +1,133 @@
 /**
- * ============================================================
- * SINGLE SOURCE OF TRUTH FOR ALL SITE CONTENT
- * ============================================================
- * Update this file to update the entire site. Every placeholder
- * below is flagged with "TODO: Replace with actual content" so
- * you can grep and fill them in.
- * ============================================================
+ * Single source of truth for all site content.
+ * Edit values here to update the site.
  */
 
 import type { IconType } from "react-icons";
 import {
   SiPython,
-  SiPytorch,
-  SiTensorflow,
   SiOpenai,
   SiLangchain,
-  SiHuggingface,
+  SiAnthropic,
   SiFastapi,
-  SiNodedotjs,
   SiPostgresql,
-  SiMongodb,
-  SiRedis,
   SiDocker,
-  SiKubernetes,
-  SiAmazonwebservices,
   SiVercel,
   SiNextdotjs,
   SiReact,
   SiTypescript,
   SiTailwindcss,
-  SiGit,
+  SiSupabase,
   SiGithub,
   SiLinkedin,
   SiX,
-  SiZapier,
-  SiN8N,
 } from "react-icons/si";
 
 // ========== IDENTITY ==========
 export const SITE = {
   name: "Deep Shah",
-  handle: "@deepshah",
-  title: "Deep Shah — AI Engineer & Automation Expert",
+  fullName: "Deep Amish Shah",
+  handle: "@deepsai",
+  title: "Deep Shah — AI Engineer building agentic systems",
   description:
-    "AI Engineer and Automation Expert building intelligent systems, LLM-powered products, and end-to-end automations that ship.",
-  url: "https://deepshah.tech",
-  domain: "deepshah.tech",
+    "Deep Shah — AI Engineer at Stevens '26. I design autonomous AI pipelines that handle real workflows end-to-end: browser automation, LLM orchestration, production deployment.",
+  url: "https://deepsai.tech",
+  domain: "deepsai.tech",
   locale: "en_US",
-  // TODO: Replace with actual content
-  email: "deep@deepshah.tech",
-  // TODO: Replace with actual content
-  location: "United States",
-  // TODO: Replace with actual content
+  email: "deep@deepsai.tech",
+  location: "Jersey City, NJ",
   resumeUrl: "/resume.pdf",
   photoUrl: "/images/deep-shah.jpeg",
-  ogImage: "/icons/og-image.svg",
+  ogImage: "/opengraph-image",
 };
 
 // ========== NAVIGATION ==========
 export const NAV_LINKS = [
+  { label: "Work", href: "#projects" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
+  { label: "Writing", href: "#writing" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
 // ========== HERO ==========
 export const HERO = {
-  eyebrow: "AI Engineer · Automation Expert",
-  name: "Deep Shah",
-  roles: [
-    "AI Engineer",
-    "LLM Systems",
-    "Agent Builder",
-    "Automation Architect",
-  ],
-  // TODO: Replace with actual content
-  bio: "I build AI-powered products and automation pipelines that turn messy, manual work into measurable outcomes — from LLM agents and RAG systems to end-to-end workflow orchestration.",
-  primaryCta: { label: "View My Work", href: "#projects" },
-  secondaryCta: { label: "Get in Touch", href: "#contact" },
-  trust: [
-    "Shipping since 2020",
-    "Remote · United States",
-    "Open to select engagements",
-  ],
-  // Icons shown in the hero marquee strip + orbital chips
-  orbitIcons: [
-    { name: "OpenAI", Icon: SiOpenai },
-    { name: "LangChain", Icon: SiLangchain },
-    { name: "Python", Icon: SiPython },
-    { name: "Next.js", Icon: SiNextdotjs },
-    { name: "PyTorch", Icon: SiPytorch },
-    { name: "AWS", Icon: SiAmazonwebservices },
-  ] as { name: string; Icon: IconType }[],
-  marqueeIcons: [
-    { name: "OpenAI", Icon: SiOpenai },
-    { name: "LangChain", Icon: SiLangchain },
-    { name: "Hugging Face", Icon: SiHuggingface },
-    { name: "PyTorch", Icon: SiPytorch },
-    { name: "TensorFlow", Icon: SiTensorflow },
-    { name: "Python", Icon: SiPython },
-    { name: "FastAPI", Icon: SiFastapi },
-    { name: "Next.js", Icon: SiNextdotjs },
-    { name: "React", Icon: SiReact },
-    { name: "TypeScript", Icon: SiTypescript },
-    { name: "Node.js", Icon: SiNodedotjs },
-    { name: "Postgres", Icon: SiPostgresql },
-    { name: "Redis", Icon: SiRedis },
-    { name: "Docker", Icon: SiDocker },
-    { name: "Kubernetes", Icon: SiKubernetes },
-    { name: "AWS", Icon: SiAmazonwebservices },
-    { name: "Vercel", Icon: SiVercel },
-    { name: "n8n", Icon: SiN8N },
-    { name: "Zapier", Icon: SiZapier },
-    { name: "Tailwind", Icon: SiTailwindcss },
-  ] as { name: string; Icon: IconType }[],
-  stats: [
-    // TODO: Replace with actual content
-    { value: 50, suffix: "+", label: "Projects Shipped" },
-    // TODO: Replace with actual content
-    { value: 5, suffix: "+", label: "Years Building" },
-    // TODO: Replace with actual content
-    { value: 20, suffix: "+", label: "Happy Clients" },
-  ],
+  eyebrow: "AI Engineer · Stevens '26",
+  headline: {
+    line1Plain: "I build",
+    line1Gradient: "agentic systems",
+    line2: "that ship.",
+  },
+  sub: "Building autonomous AI pipelines that handle real workflows end-to-end — from browser automation to LLM orchestration to production deployment.",
+  primaryCta: { label: "See my work", href: "#projects" },
+  secondaryCta: { label: "Download résumé", href: "/resume.pdf" },
 };
 
 // ========== ABOUT ==========
 export const ABOUT = {
-  heading: "About Me",
-  // TODO: Replace with actual content
+  eyebrow: "About",
+  heading: "Currently shipping.",
   paragraphs: [
-    "I'm an AI engineer who cares about the unglamorous parts — evals that don't lie, pipelines that don't wake you up at 3 AM, and interfaces that make the model feel like a product. I work across the stack: from fine-tuning and retrieval to deploying and instrumenting systems in production.",
-    "Before AI, I spent years automating operations for teams drowning in spreadsheets and ticket queues. That's still the lens I bring: find the workflow, find the bottleneck, and build the smallest thing that removes it. I enjoy partnering with founders and engineering teams who want to ship quickly without shipping slop.",
+    "I'm Deep — a senior at Stevens Institute of Technology focused on AI engineering and agentic systems. I design pipelines where LLMs do real work: reading websites, writing emails, calling APIs, making decisions.",
+    "My current obsession is building end-to-end automation that removes the human-in-the-middle from repetitive knowledge work — outreach, research, scraping, triage. I want AI agents to actually ship outcomes, not just generate text.",
+    "Based in Jersey City. Open to AI Engineer, Applied Scientist, and Agentic AI roles.",
   ],
-  highlights: [
-    // TODO: Replace with actual content
-    { title: "LLM Systems", value: "Production-ready", label: "RAG, agents, fine-tuning, evals" },
-    // TODO: Replace with actual content
-    { title: "Automation", value: "End-to-end", label: "n8n, Zapier, custom orchestration" },
-    // TODO: Replace with actual content
-    { title: "Shipping", value: "Fast & reliable", label: "From prototype to production" },
+  stats: [
+    { value: "15+", label: "Projects shipped" },
+    { value: "6", label: "Production pipelines" },
+    { value: "∞", label: "LeetCodes grinded" },
   ],
-  availability: "Open to Opportunities",
 };
 
-// ========== SKILLS ==========
-export type Skill = { name: string; Icon: IconType };
-export type SkillCategory = { category: string; items: Skill[] };
+// ========== PROJECTS ==========
+export type Project = {
+  slug: string;
+  title: string;
+  description: string;
+  stack: string[];
+  href?: string;
+  accent?: "coral" | "magenta" | "violet" | "amber";
+};
 
-export const SKILLS: SkillCategory[] = [
-  // TODO: Replace with actual content
+export const PROJECTS: Project[] = [
   {
-    category: "AI / ML",
-    items: [
-      { name: "Python", Icon: SiPython },
-      { name: "PyTorch", Icon: SiPytorch },
-      { name: "TensorFlow", Icon: SiTensorflow },
-      { name: "OpenAI", Icon: SiOpenai },
-      { name: "LangChain", Icon: SiLangchain },
-      { name: "Hugging Face", Icon: SiHuggingface },
-    ],
+    slug: "outreach-engine",
+    title: "Outreach Engine",
+    description:
+      "End-to-end job outreach pipeline: scrapes ATS platforms, extracts contacts via Stevens SSO + CareerShift, verifies emails, drafts personalized pitches with GPT-4o, sends via SMTP with résumé attached.",
+    stack: ["Python", "Playwright", "OpenAI", "Gmail API"],
+    accent: "magenta",
   },
-  // TODO: Replace with actual content
   {
-    category: "Automation",
-    items: [
-      { name: "n8n", Icon: SiN8N },
-      { name: "Zapier", Icon: SiZapier },
-      { name: "Python Scripts", Icon: SiPython },
-    ],
+    slug: "voice-agent-pharmacy",
+    title: "Voice AI Agent for Pharmacy",
+    description:
+      "Autonomous voice agent that handles inbound pharmacy calls — intake, prescription lookups, refill status, escalation routing. Built for real-time latency under 500ms.",
+    stack: ["LiveKit", "OpenAI Realtime", "FastAPI"],
+    accent: "violet",
   },
-  // TODO: Replace with actual content
   {
-    category: "Backend",
-    items: [
-      { name: "FastAPI", Icon: SiFastapi },
-      { name: "Node.js", Icon: SiNodedotjs },
-      { name: "PostgreSQL", Icon: SiPostgresql },
-      { name: "MongoDB", Icon: SiMongodb },
-      { name: "Redis", Icon: SiRedis },
-    ],
+    slug: "email-automation",
+    title: "Email Automation Pipeline",
+    description:
+      "Triages inbound pharmacy email, classifies intent, drafts responses with PHI redaction, and routes edge cases to humans. Processes 1000+ emails/day in production.",
+    stack: ["Python", "Claude", "Gmail API", "Postgres"],
+    accent: "coral",
   },
-  // TODO: Replace with actual content
   {
-    category: "Frontend",
-    items: [
-      { name: "Next.js", Icon: SiNextdotjs },
-      { name: "React", Icon: SiReact },
-      { name: "TypeScript", Icon: SiTypescript },
-      { name: "Tailwind CSS", Icon: SiTailwindcss },
-    ],
+    slug: "ats-scraper",
+    title: "ATS Job Scraper",
+    description:
+      "Unified scraper across Ashby, Greenhouse, Workday, and Amazon Jobs. Filters by role family (AI Engineer, Applied Scientist, New Grad SWE). No Easy-Apply noise.",
+    stack: ["Playwright", "Next.js", "Supabase"],
+    accent: "amber",
   },
-  // TODO: Replace with actual content
   {
-    category: "Cloud & DevOps",
-    items: [
-      { name: "AWS", Icon: SiAmazonwebservices },
-      { name: "Docker", Icon: SiDocker },
-      { name: "Kubernetes", Icon: SiKubernetes },
-      { name: "Vercel", Icon: SiVercel },
-    ],
-  },
-  // TODO: Replace with actual content
-  {
-    category: "Tools",
-    items: [
-      { name: "Git", Icon: SiGit },
-      { name: "GitHub", Icon: SiGithub },
-    ],
+    slug: "pharmacy-marketplace",
+    title: "Pharmacy M&A Marketplace",
+    description:
+      "Two-sided marketplace for pharmacy acquisitions. Map-based deal discovery, Sanity CMS for listings, auth and deal rooms.",
+    stack: ["Next.js", "FastAPI", "Supabase", "Mapbox"],
+    accent: "violet",
   },
 ];
 
@@ -218,154 +137,116 @@ export type Experience = {
   role: string;
   start: string;
   end: string;
-  logo?: string;
   bullets: string[];
 };
 
 export const EXPERIENCE: Experience[] = [
-  // TODO: Replace with actual content
   {
-    company: "Company Name",
-    role: "AI Engineer",
-    start: "Jan 2024",
+    company: "Stealth Pharmacy AI",
+    role: "Founding AI Engineer",
+    start: "2025",
     end: "Present",
-    logo: "/images/logos/company-1.svg",
     bullets: [
-      "Shipped an LLM-powered retrieval system handling 10k+ queries/day with sub-300ms P95 latency.",
-      "Reduced manual ops work by 80% by replacing a human-in-the-loop pipeline with an autonomous agent.",
-      "Owned evals and observability — built internal tooling adopted by the rest of the AI team.",
+      "Designed and shipped a voice + email automation stack handling production pharmacy operations.",
+      "Built PHI-aware LLM pipelines with Claude and GPT-4o for triage, response drafting, and routing.",
+      "Owned eval harness and observability — prompt regressions caught before deploy.",
     ],
   },
-  // TODO: Replace with actual content
   {
-    company: "Previous Company",
-    role: "Automation Engineer",
-    start: "Mar 2022",
-    end: "Dec 2023",
-    logo: "/images/logos/company-2.svg",
+    company: "Stevens Institute of Technology",
+    role: "BS Computer Science",
+    start: "2022",
+    end: "2026",
     bullets: [
-      "Built end-to-end automations across Slack, HubSpot, and Notion that saved 200+ hours/month.",
-      "Led the migration from Zapier to self-hosted n8n, cutting recurring cost by 70%.",
-      "Partnered with the ops team to roadmap automation initiatives across the company.",
+      "Concentration in AI/ML and distributed systems.",
+      "TA for systems programming; co-founded campus AI builders' group.",
+      "Independent research on agent frameworks and tool-use evaluation.",
     ],
   },
-  // TODO: Replace with actual content
   {
-    company: "Earlier Company",
-    role: "Software Engineer",
-    start: "Jun 2020",
-    end: "Feb 2022",
-    logo: "/images/logos/company-3.svg",
+    company: "Independent Projects",
+    role: "Builder",
+    start: "2020",
+    end: "Present",
     bullets: [
-      "Built full-stack features for an internal B2B platform (Next.js, FastAPI, Postgres).",
-      "Introduced CI/CD that took deploys from a 30-minute manual process to sub-5-minute automated pipeline.",
-      "Mentored two junior engineers through their first year.",
+      "15+ shipped projects spanning automation, scraping, agents, and full-stack products.",
+      "Each project starts from a real workflow, not a tutorial.",
     ],
   },
 ];
 
-// ========== PROJECTS ==========
-export type Project = {
+// ========== WRITING (stub) ==========
+export type Article = {
+  slug: string;
   title: string;
-  description: string;
-  longDescription?: string;
-  stack: string[];
-  github?: string;
-  demo?: string;
-  image?: string;
-  featured?: boolean;
+  excerpt: string;
+  date: string;
+  readingMinutes: number;
 };
 
-export const PROJECTS: Project[] = [
-  // TODO: Replace with actual content
+export const ARTICLES: Article[] = [
   {
-    title: "Flagship Project",
-    description:
-      "A short punchy sentence describing what this does and why it matters.",
-    longDescription:
-      "Two-to-three sentences with more detail. Call out scale, impact, or a clever technical choice. Keep it concrete.",
-    stack: ["Next.js", "FastAPI", "OpenAI", "Postgres", "Redis"],
-    github: "https://github.com/username/repo",
-    demo: "https://example.com",
-    image: "/images/projects/project-1.png",
-    featured: true,
+    slug: "agents-that-ship",
+    title: "Agents that ship, not agents that demo",
+    excerpt:
+      "Why most agent demos fall apart in production — and the three constraints I now design around from day one.",
+    date: "2026-03-12",
+    readingMinutes: 7,
   },
-  // TODO: Replace with actual content
   {
-    title: "RAG Search System",
-    description:
-      "Semantic search over 100k+ docs with hybrid retrieval and re-ranking.",
-    stack: ["Python", "LangChain", "Pinecone", "FastAPI"],
-    github: "https://github.com/username/repo",
-    demo: "https://example.com",
-    image: "/images/projects/project-2.png",
+    slug: "playwright-vs-llm",
+    title: "When to use Playwright vs. when to ask the LLM",
+    excerpt:
+      "A pragmatic split for browser automation: deterministic where you can, model-driven where you must.",
+    date: "2026-02-04",
+    readingMinutes: 5,
   },
-  // TODO: Replace with actual content
   {
-    title: "Autonomous Agent",
-    description:
-      "Multi-step agent that handles customer support triage end-to-end.",
-    stack: ["Python", "OpenAI", "Temporal"],
-    github: "https://github.com/username/repo",
-    demo: "https://example.com",
-    image: "/images/projects/project-3.png",
-  },
-  // TODO: Replace with actual content
-  {
-    title: "Automation Suite",
-    description:
-      "n8n workflows replacing 12 manual ops processes across sales and finance.",
-    stack: ["n8n", "Python", "Postgres"],
-    github: "https://github.com/username/repo",
-    image: "/images/projects/project-4.png",
-  },
-];
-
-// ========== TESTIMONIALS ==========
-export type Testimonial = {
-  quote: string;
-  name: string;
-  title: string;
-  company: string;
-  avatar?: string;
-};
-
-export const TESTIMONIALS: Testimonial[] = [
-  // TODO: Replace with actual content
-  {
-    quote:
-      "Deep delivered a production LLM system in half the time I'd expect — and more importantly, it actually worked. Rare combination.",
-    name: "Jane Doe",
-    title: "CTO",
-    company: "Acme Co",
-    avatar: "/images/testimonials/jane.png",
-  },
-  // TODO: Replace with actual content
-  {
-    quote:
-      "Our ops team got their lives back. The automations Deep shipped cut busy-work by more than half in the first month.",
-    name: "John Smith",
-    title: "Head of Operations",
-    company: "Widget Inc",
-    avatar: "/images/testimonials/john.png",
-  },
-  // TODO: Replace with actual content
-  {
-    quote:
-      "Clear communication, fast execution, and the final work was genuinely great. Would hire again without hesitation.",
-    name: "Alex Chen",
-    title: "Founder",
-    company: "Startup XYZ",
-    avatar: "/images/testimonials/alex.png",
+    slug: "evals-that-dont-lie",
+    title: "Evals that don't lie to you",
+    excerpt:
+      "The eval setup I wish I'd built six months earlier. Cheap to run, hard to game, easy to read.",
+    date: "2026-01-19",
+    readingMinutes: 6,
   },
 ];
 
 // ========== CONTACT ==========
+export const CONTACT = {
+  eyebrow: "Contact",
+  headline: "Let's build something.",
+  rows: [
+    { label: "Email", value: "deep@deepsai.tech", href: "mailto:deep@deepsai.tech" },
+    { label: "GitHub", value: "github.com/deepsai", href: "https://github.com/deepsai" },
+    { label: "LinkedIn", value: "linkedin.com/in/deepamishshah", href: "https://linkedin.com/in/deepamishshah" },
+  ],
+};
+
+// ========== TECH MARQUEE ==========
+export type Tech = { name: string; Icon: IconType };
+
+export const TECH_STACK: Tech[] = [
+  { name: "Python", Icon: SiPython },
+  { name: "Next.js", Icon: SiNextdotjs },
+  { name: "LangChain", Icon: SiLangchain },
+  { name: "OpenAI", Icon: SiOpenai },
+  { name: "Claude", Icon: SiAnthropic },
+  { name: "FastAPI", Icon: SiFastapi },
+  { name: "Postgres", Icon: SiPostgresql },
+  { name: "Supabase", Icon: SiSupabase },
+  { name: "React", Icon: SiReact },
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "Tailwind", Icon: SiTailwindcss },
+  { name: "Docker", Icon: SiDocker },
+  { name: "Vercel", Icon: SiVercel },
+];
+
+// ========== CONTACT FORM (legacy — kept for /api/contact) ==========
 export const CONTACT_SUBJECTS = [
-  "New Project / Consulting",
-  "Full-Time Role",
+  "AI Engineer Role",
+  "Applied Scientist Role",
+  "Project / Consulting",
   "Collaboration",
-  "Speaking / Podcast",
   "Just Saying Hi",
 ] as const;
 
@@ -373,12 +254,9 @@ export type ContactSubject = (typeof CONTACT_SUBJECTS)[number];
 
 // ========== SOCIAL ==========
 export const SOCIAL = {
-  // TODO: Replace with actual content
-  github: "https://github.com/deepshah",
-  // TODO: Replace with actual content
-  linkedin: "https://linkedin.com/in/deepshah",
-  // TODO: Replace with actual content
-  twitter: "https://twitter.com/deepshah",
+  github: "https://github.com/deepsai",
+  linkedin: "https://linkedin.com/in/deepamishshah",
+  twitter: "https://twitter.com/deepsai",
   email: `mailto:${SITE.email}`,
 };
 

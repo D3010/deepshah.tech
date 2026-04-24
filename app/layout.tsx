@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -9,15 +9,15 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const spaceGrotesk = Space_Grotesk({
+// JetBrains Mono — closest open-source analog to Geist Mono in Next 14's font registry
+const geistMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-space-grotesk",
-  weight: ["500", "600", "700"],
+  variable: "--font-geist-mono",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0f",
+  themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
 };
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
   creator: SITE.name,
   keywords: [
     "Deep Shah",
+    "Deep Amish Shah",
     "AI Engineer",
-    "Automation Expert",
+    "Agentic AI",
+    "Stevens Institute of Technology",
     "LLM",
-    "Machine Learning",
-    "Next.js",
-    "Portfolio",
-    "Python",
-    "RAG",
-    "Agents",
+    "Automation",
+    "Playwright",
+    "OpenAI",
+    "Claude",
   ],
   openGraph: {
     type: "website",
@@ -51,20 +51,11 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: SITE.title,
     description: SITE.description,
-    images: [
-      {
-        url: SITE.ogImage,
-        width: 1200,
-        height: 630,
-        alt: SITE.title,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
-    images: [SITE.ogImage],
     creator: SITE.handle,
   },
   alternates: { canonical: SITE.url },
@@ -80,28 +71,21 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/icons/favicon.svg", type: "image/svg+xml" },
-      // TODO: Generate /icons/favicon.ico and /icons/apple-touch-icon.png
-      // (use https://realfavicongenerator.net) and add lines:
-      // { url: "/icons/favicon.ico" },
-    ],
-    // apple: "/icons/apple-touch-icon.png",
+    icon: [{ url: "/icons/favicon.svg", type: "image/svg+xml" }],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: SITE.name,
+  name: SITE.fullName,
   url: SITE.url,
-  jobTitle: "AI Engineer & Automation Expert",
+  jobTitle: "AI Engineer",
   description: SITE.description,
   image: `${SITE.url}${SITE.photoUrl}`,
   sameAs: [
-    "https://github.com/deepshah",
-    "https://linkedin.com/in/deepshah",
-    "https://twitter.com/deepshah",
+    "https://github.com/deepsai",
+    "https://linkedin.com/in/deepamishshah",
   ],
 };
 
@@ -113,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable}`}
+      className={`${inter.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background font-sans text-fg antialiased">
