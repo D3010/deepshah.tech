@@ -150,8 +150,9 @@
     font-size: clamp(3.5rem, 8vw, 7rem);
     font-weight: 500;
     letter-spacing: -0.04em;
-    line-height: 0.95;
+    line-height: 1.02;
     color: var(--text-primary);
+    padding-bottom: 0.08em; /* breathing room for descenders + gradient text mask */
   }
 
   /* Section heading */

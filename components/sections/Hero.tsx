@@ -60,17 +60,15 @@ export function Hero() {
             variants={fadeUp}
             className="display max-w-5xl text-balance"
           >
-            <span className="block">
-              {HERO.headline.line1Plain}{" "}
-              <motion.span
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.4, ease: EASE_ANTIGRAV, delay: 0.35 }}
-                className="text-gradient-strong inline-block"
-              >
-                {HERO.headline.line1Gradient}
-              </motion.span>
-            </span>
+            <span className="block">{HERO.headline.line1Plain}</span>
+            <motion.span
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.4, ease: EASE_ANTIGRAV, delay: 0.35 }}
+              className="text-gradient-strong block pb-[0.08em] leading-[1.05]"
+            >
+              {HERO.headline.line1Gradient}
+            </motion.span>
             <span className="block">{HERO.headline.line2}</span>
           </motion.h1>
 
