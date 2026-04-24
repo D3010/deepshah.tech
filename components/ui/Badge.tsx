@@ -11,7 +11,7 @@ export function Badge({
   children,
   className,
   pulse = false,
-  dotColor = "#22c55e",
+  dotColor = "#e8b55a",
 }: BadgeProps) {
   return (
     <span

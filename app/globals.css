@@ -2,18 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== Design tokens ===== */
+/* ===== Antigravity design tokens ===== */
 :root {
-  --background: #030a14;
-  --surface: #071422;
-  --surface-2: #0c1e2f;
-  --border: 255 255 255;
+  --background: #0a0807;
+  --surface: #141009;
+  --surface-2: #1c160d;
+  --border: 247 230 196;
   --border-alpha: 0.08;
-  --primary: #10b981;
-  --secondary: #f43f5e;
-  --accent: #fbbf24;
-  --fg: #f1f5f9;
-  --muted: #93a1b8;
+  --primary: #e8b55a;
+  --secondary: #e8a384;
+  --accent: #f7e6c4;
+  --ember: #c9873f;
+  --fg: #f5ead1;
+  --muted: #9e8f7a;
   --radius: 14px;
   --nav-h: 72px;
 }
@@ -44,8 +45,8 @@
   }
 
   ::selection {
-    background: rgba(16, 185, 129, 0.4);
-    color: #fff;
+    background: rgba(232, 181, 90, 0.4);
+    color: #0a0807;
   }
 
   ::-webkit-scrollbar {
@@ -56,11 +57,11 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(247, 230, 196, 0.08);
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(247, 230, 196, 0.16);
   }
 
   h1,
@@ -89,12 +90,13 @@
     @apply mx-auto w-full max-w-7xl px-6 md:px-10;
   }
 
+  /* Cream → gold → copper — the signature Antigravity text gradient */
   .text-gradient {
     background-image: linear-gradient(
       120deg,
-      #34d399 0%,
-      #fb7185 55%,
-      #fbbf24 100%
+      #fbefd5 0%,
+      #e8b55a 55%,
+      #c9873f 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -104,33 +106,33 @@
   .text-gradient-strong {
     background-image: linear-gradient(
       120deg,
-      #10b981 0%,
-      #f43f5e 55%,
-      #fbbf24 100%
+      #f7e6c4 0%,
+      #e8b55a 45%,
+      #c9873f 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradient-x 7s ease infinite;
+    animation: gradient-x 9s ease infinite;
   }
 
   .glass {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.03) 0%,
-      rgba(255, 255, 255, 0.01) 100%
+      rgba(247, 230, 196, 0.035) 0%,
+      rgba(247, 230, 196, 0.012) 100%
     );
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(247, 230, 196, 0.08);
   }
 
   .glass-strong {
-    background: rgba(17, 17, 24, 0.6);
+    background: rgba(20, 16, 9, 0.72);
     backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(247, 230, 196, 0.08);
   }
 
   .divider-gradient {
@@ -138,8 +140,8 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(16, 185, 129, 0.55) 30%,
-      rgba(244, 63, 94, 0.55) 70%,
+      rgba(232, 181, 90, 0.55) 30%,
+      rgba(232, 163, 132, 0.45) 70%,
       transparent 100%
     );
   }
@@ -149,14 +151,14 @@
     inset: 0;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-    opacity: 0.03;
+    opacity: 0.04;
     mix-blend-mode: overlay;
   }
 
   .bg-grid {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(247, 230, 196, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(247, 230, 196, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
@@ -172,9 +174,9 @@
     padding: 1px;
     background: linear-gradient(
       120deg,
-      rgba(16, 185, 129, 0.75),
-      rgba(244, 63, 94, 0.65),
-      rgba(251, 191, 36, 0.65)
+      rgba(247, 230, 196, 0.8),
+      rgba(232, 181, 90, 0.7),
+      rgba(201, 135, 63, 0.65)
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -191,41 +193,39 @@
     scrollbar-width: none;
   }
 
-  /* Premium aurora / mesh gradient layer */
+  /* Warm aurora — amber / rose-gold / cream / copper */
   .bg-aurora {
     position: absolute;
     inset: -20%;
     background:
-      radial-gradient(42% 42% at 18% 28%, rgba(16, 185, 129, 0.55), transparent 60%),
-      radial-gradient(38% 38% at 82% 22%, rgba(244, 63, 94, 0.5), transparent 60%),
-      radial-gradient(46% 46% at 70% 78%, rgba(251, 191, 36, 0.4), transparent 65%),
-      radial-gradient(32% 32% at 28% 78%, rgba(20, 184, 166, 0.45), transparent 60%);
-    filter: blur(80px) saturate(160%);
+      radial-gradient(44% 44% at 20% 30%, rgba(232, 181, 90, 0.55), transparent 60%),
+      radial-gradient(40% 40% at 80% 22%, rgba(232, 163, 132, 0.48), transparent 60%),
+      radial-gradient(50% 50% at 68% 80%, rgba(201, 135, 63, 0.45), transparent 65%),
+      radial-gradient(34% 34% at 26% 80%, rgba(247, 230, 196, 0.38), transparent 60%);
+    filter: blur(90px) saturate(150%);
     pointer-events: none;
   }
 
-  /* Mouse-follow spotlight */
+  /* Warm spotlight */
   .bg-spotlight {
     position: absolute;
     inset: 0;
     background: radial-gradient(
-      520px circle at var(--mx, 50%) var(--my, 30%),
-      rgba(244, 63, 94, 0.16),
-      rgba(16, 185, 129, 0.14) 40%,
+      560px circle at var(--mx, 50%) var(--my, 30%),
+      rgba(232, 181, 90, 0.18),
+      rgba(232, 163, 132, 0.12) 40%,
       transparent 70%
     );
     pointer-events: none;
     transition: background 120ms ease-out;
   }
 
-  /* Faint dot grid (denser than bg-grid) */
   .bg-dots {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(247, 230, 196, 0.09) 1px, transparent 1px);
     background-size: 22px 22px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
   }
 
-  /* Marquee mask — soft edge fade */
   .mask-fade-x {
     mask-image: linear-gradient(
       to right,
@@ -243,24 +243,50 @@
     );
   }
 
-  /* Soft conic rim used on avatar */
+  /* Antigravity signature: glowing orb rim */
   .conic-rim {
     background: conic-gradient(
       from 0deg,
-      #10b981 0deg,
-      #f43f5e 120deg,
-      #fbbf24 240deg,
-      #10b981 360deg
+      #f7e6c4 0deg,
+      #e8b55a 120deg,
+      #c9873f 240deg,
+      #f7e6c4 360deg
     );
   }
 
-  /* Shimmer text — moving sheen under heading */
+  /* The hero orb — giant soft warm sphere */
+  .antigravity-orb {
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 35% 30%, rgba(255, 246, 221, 0.95), transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(232, 181, 90, 0.85), rgba(201, 135, 63, 0.55) 55%, rgba(20, 16, 9, 0) 75%);
+    filter: blur(2px) saturate(140%);
+    box-shadow:
+      0 0 120px 20px rgba(232, 181, 90, 0.35),
+      0 0 260px 40px rgba(201, 135, 63, 0.22),
+      inset 0 0 80px rgba(247, 230, 196, 0.25);
+    pointer-events: none;
+  }
+
+  /* Horizon glow at the bottom of a section */
+  .bg-horizon {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 60%;
+    background:
+      radial-gradient(ellipse 70% 100% at 50% 100%, rgba(232, 181, 90, 0.22), transparent 70%),
+      radial-gradient(ellipse 40% 80% at 50% 100%, rgba(247, 230, 196, 0.18), transparent 75%);
+    pointer-events: none;
+  }
+
   .shimmer-text {
     background: linear-gradient(
       110deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.8) 45%,
-      rgba(255, 255, 255, 0.08) 55%
+      rgba(245, 234, 209, 0.1) 0%,
+      rgba(247, 230, 196, 0.95) 45%,
+      rgba(245, 234, 209, 0.1) 55%
     );
     background-size: 250% 100%;
     -webkit-background-clip: text;

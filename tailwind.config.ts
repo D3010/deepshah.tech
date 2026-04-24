@@ -9,39 +9,49 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#030a14",
-        surface: "#071422",
-        "surface-2": "#0c1e2f",
-        border: "rgba(255,255,255,0.08)",
+        // Antigravity — warm near-black canvas
+        background: "#0a0807",
+        surface: "#141009",
+        "surface-2": "#1c160d",
+        border: "rgba(247,230,196,0.08)",
+        // Primary = liquid gold
         primary: {
-          DEFAULT: "#10b981",
-          50: "#ecfdf5",
-          400: "#34d399",
-          500: "#10b981",
-          600: "#059669",
-          700: "#047857",
+          DEFAULT: "#e8b55a",
+          50: "#fbf3dc",
+          400: "#f0c876",
+          500: "#e8b55a",
+          600: "#d4a145",
+          700: "#b78435",
         },
+        // Secondary = rose gold / peach
         secondary: {
-          DEFAULT: "#f43f5e",
-          400: "#fb7185",
-          500: "#f43f5e",
-          600: "#e11d48",
+          DEFAULT: "#e8a384",
+          400: "#f1b89d",
+          500: "#e8a384",
+          600: "#d98468",
         },
+        // Accent = warm cream highlight
         accent: {
-          DEFAULT: "#f59e0b",
-          400: "#fbbf24",
-          500: "#f59e0b",
-          600: "#d97706",
+          DEFAULT: "#f7e6c4",
+          400: "#fbefd5",
+          500: "#f7e6c4",
+          600: "#e8d3a3",
         },
-        muted: "#93a1b8",
-        fg: "#f1f5f9",
+        // Copper ember
+        ember: {
+          DEFAULT: "#c9873f",
+          400: "#d89a55",
+          500: "#c9873f",
+          600: "#a66b2d",
+        },
+        muted: "#9e8f7a",
+        fg: "#f5ead1",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         heading: ["var(--font-space-grotesk)", "var(--font-inter)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // Modular scale 1.25
         "xs": ["0.64rem", { lineHeight: "1rem" }],
         "sm": ["0.8rem", { lineHeight: "1.25rem" }],
         "base": ["1rem", { lineHeight: "1.6rem" }],
@@ -55,21 +65,22 @@ const config: Config = {
         "7xl": ["5.96rem", { lineHeight: "6rem" }],
       },
       backgroundImage: {
+        // Cream → gold → copper — the Antigravity signature
         "gradient-brand":
-          "linear-gradient(120deg, #10b981 0%, #f43f5e 55%, #fbbf24 100%)",
+          "linear-gradient(120deg, #f7e6c4 0%, #e8b55a 45%, #c9873f 100%)",
         "gradient-brand-soft":
-          "linear-gradient(120deg, rgba(16,185,129,0.15) 0%, rgba(244,63,94,0.15) 55%, rgba(251,191,36,0.15) 100%)",
+          "linear-gradient(120deg, rgba(247,230,196,0.18) 0%, rgba(232,181,90,0.18) 45%, rgba(201,135,63,0.18) 100%)",
         "gradient-radial":
-          "radial-gradient(circle at 50% 0%, rgba(16,185,129,0.22), transparent 60%)",
+          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,181,90,0.28), transparent 65%)",
         "noise":
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        glow: "0 0 40px -10px rgba(16,185,129,0.55)",
-        "glow-lg": "0 0 90px -10px rgba(244,63,94,0.55)",
-        "glow-cyan": "0 0 40px -10px rgba(244,63,94,0.5)",
-        "glow-amber": "0 0 40px -10px rgba(251,191,36,0.5)",
-        "inner-glow": "inset 0 1px 0 0 rgba(255,255,255,0.06)",
+        glow: "0 0 50px -10px rgba(232,181,90,0.55)",
+        "glow-lg": "0 0 100px -10px rgba(232,181,90,0.65)",
+        "glow-cyan": "0 0 40px -10px rgba(232,163,132,0.5)",
+        "glow-amber": "0 0 60px -10px rgba(247,230,196,0.55)",
+        "inner-glow": "inset 0 1px 0 0 rgba(247,230,196,0.08)",
       },
       keyframes: {
         float: {
@@ -100,25 +111,31 @@ const config: Config = {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        // Slower, dreamier aurora — matches antigravity's meditative feel
         aurora: {
           "0%,100%": {
-            transform: "translate3d(-6%, -4%, 0) scale(1)",
+            transform: "translate3d(-4%, -3%, 0) scale(1)",
             opacity: "0.55",
           },
           "50%": {
-            transform: "translate3d(6%, 6%, 0) scale(1.15)",
-            opacity: "0.8",
+            transform: "translate3d(4%, 4%, 0) scale(1.1)",
+            opacity: "0.85",
           },
         },
         "aurora-alt": {
           "0%,100%": {
-            transform: "translate3d(6%, 4%, 0) scale(1.1)",
+            transform: "translate3d(5%, 3%, 0) scale(1.08)",
             opacity: "0.5",
           },
           "50%": {
-            transform: "translate3d(-5%, -6%, 0) scale(0.95)",
-            opacity: "0.75",
+            transform: "translate3d(-4%, -5%, 0) scale(0.96)",
+            opacity: "0.78",
           },
+        },
+        // Breathing orb — soft pulse
+        "orb-breathe": {
+          "0%,100%": { transform: "scale(1)", opacity: "0.85" },
+          "50%": { transform: "scale(1.06)", opacity: "1" },
         },
         marquee: {
           "0%": { transform: "translate3d(0,0,0)" },
@@ -152,12 +169,13 @@ const config: Config = {
         float: "float 6s ease-in-out infinite",
         "float-slow": "float-slow 9s ease-in-out infinite",
         "gradient-x": "gradient-x 8s ease infinite",
-        "gradient-spin": "gradient-spin 8s linear infinite",
+        "gradient-spin": "gradient-spin 14s linear infinite",
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
         "bounce-slow": "bounce-slow 2.5s ease-in-out infinite",
         shimmer: "shimmer 2.5s linear infinite",
-        aurora: "aurora 18s ease-in-out infinite",
-        "aurora-alt": "aurora-alt 22s ease-in-out infinite",
+        aurora: "aurora 24s ease-in-out infinite",
+        "aurora-alt": "aurora-alt 30s ease-in-out infinite",
+        "orb-breathe": "orb-breathe 7s ease-in-out infinite",
         marquee: "marquee 40s linear infinite",
         "marquee-slow": "marquee 70s linear infinite",
         orbit: "orbit 28s linear infinite",

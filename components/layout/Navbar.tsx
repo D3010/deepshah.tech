@@ -37,9 +37,9 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          "fixed inset-x-0 top-0 z-50 transition-all duration-700",
           scrolled
-            ? "border-b border-white/[0.06] glass-strong backdrop-saturate-150"
+            ? "border-b border-accent/[0.06] glass-strong backdrop-saturate-150"
             : "bg-transparent"
         )}
         style={{ height: "var(--nav-h)" }}
@@ -55,7 +55,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => handleNav(link.href)}
                     data-cursor="link"
-                    className="rounded-full px-4 py-2 text-sm text-muted transition-colors duration-200 hover:text-fg"
+                    className="rounded-full px-4 py-2 text-sm text-muted transition-colors duration-500 hover:text-fg"
                   >
                     {link.label}
                   </button>
@@ -69,7 +69,7 @@ export function Navbar() {
               type="button"
               onClick={() => handleNav("#contact")}
               data-cursor="link"
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium text-fg gradient-border transition-all duration-300 hover:bg-white/[0.04] hover:shadow-glow"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium text-fg gradient-border transition-all duration-500 hover:bg-accent/[0.05] hover:shadow-glow"
             >
               Hire Me
               <ArrowUpRight className="h-4 w-4" />
@@ -80,7 +80,7 @@ export function Navbar() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((o) => !o)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-fg md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accent/10 bg-accent/[0.04] text-fg md:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>

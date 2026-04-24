@@ -25,11 +25,11 @@ const sizeClasses: Record<Size, string> = {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-gradient-brand text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98]",
+    "bg-gradient-brand text-background shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98]",
   ghost:
-    "glass text-fg hover:bg-white/[0.06] hover:border-white/15 hover:shadow-glow-cyan",
+    "glass text-fg hover:bg-accent/[0.06] hover:border-accent/20 hover:shadow-glow",
   outline:
-    "gradient-border bg-transparent text-fg hover:bg-white/[0.04]",
+    "gradient-border bg-transparent text-fg hover:bg-accent/[0.04]",
 };
 
 export interface ButtonProps

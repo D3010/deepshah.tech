@@ -29,16 +29,16 @@ export function ParticleBackground() {
           resize: { enable: true },
         },
         modes: {
-          grab: { distance: 160, links: { opacity: 0.4 } },
+          grab: { distance: 160, links: { opacity: 0.35 } },
         },
       },
       particles: {
-        color: { value: ["#10b981", "#f43f5e", "#fbbf24", "#34d399"] },
+        color: { value: ["#f7e6c4", "#e8b55a", "#e8a384", "#c9873f"] },
         links: {
-          color: "#10b981",
+          color: "#e8b55a",
           distance: 140,
           enable: true,
-          opacity: 0.2,
+          opacity: 0.18,
           width: 1,
         },
         move: {
@@ -46,12 +46,12 @@ export function ParticleBackground() {
           direction: "none",
           outModes: { default: "bounce" },
           random: true,
-          speed: 0.5,
+          speed: 0.45,
           straight: false,
         },
         number: {
           density: { enable: true, width: 1200, height: 800 },
-          value: 55,
+          value: 48,
         },
         opacity: {
           value: { min: 0.2, max: 0.6 },

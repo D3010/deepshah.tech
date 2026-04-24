@@ -161,7 +161,7 @@ export function Contact() {
               </button>
 
               {status.kind === "success" && (
-                <span className="inline-flex items-center gap-2 text-sm text-emerald-400">
+                <span className="inline-flex items-center gap-2 text-sm text-primary-400">
                   <CheckCircle2 className="h-4 w-4" /> Sent — I&apos;ll be in touch.
                 </span>
               )}
