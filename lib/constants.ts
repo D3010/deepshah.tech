@@ -399,7 +399,7 @@ export type ContactSubject = (typeof CONTACT_SUBJECTS)[number];
 // ========== SOCIAL ==========
 export const SOCIAL = {
   github: "https://github.com/D3010",
-  linkedin: "https://linkedin.com/in/deepamishshah",
+  linkedin: "https://www.linkedin.com/in/deep-shah30/",
   twitter: "https://twitter.com/deepsai",
   email: `mailto:${SITE.email}`,
   phone: SITE.phoneHref,

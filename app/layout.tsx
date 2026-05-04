@@ -84,8 +84,8 @@ const jsonLd = {
   description: SITE.description,
   image: `${SITE.url}${SITE.photoUrl}`,
   sameAs: [
-    "https://github.com/deepsai",
-    "https://linkedin.com/in/deepamishshah",
+    "https://github.com/D3010",
+    "https://www.linkedin.com/in/deep-shah30/",
   ],
 };
 

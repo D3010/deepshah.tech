@@ -2,9 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { GradientButton } from "@/components/ui/GradientButton";
-import { OutlineButton } from "@/components/ui/OutlineButton";
 import { RevealText } from "@/components/ui/RevealText";
 import { HeroBackground } from "@/components/hero/HeroBackground";
 import { HERO } from "@/lib/constants";
@@ -104,15 +103,6 @@ export function Hero() {
             {HERO.primaryCta.label}
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </GradientButton>
-          <OutlineButton
-            as="a"
-            href={HERO.secondaryCta.href}
-            size="lg"
-            download
-          >
-            <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-            {HERO.secondaryCta.label}
-          </OutlineButton>
         </motion.div>
       </div>
 
