@@ -264,42 +264,13 @@ function VisibilityGuard() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Static fallback for prefers-reduced-motion                          */
-/* ------------------------------------------------------------------ */
-
-function StaticOrb() {
-  // 64 dots arranged in a circle — clean, intentional, motionless.
-  const dots = Array.from({ length: 64 }, (_, i) => {
-    const a = (i / 64) * Math.PI * 2;
-    const x = 50 + Math.cos(a) * 35;
-    const y = 50 + Math.sin(a) * 35;
-    return { x, y, k: i };
-  });
-  return (
-    <svg
-      viewBox="0 0 100 100"
-      className="absolute inset-0 m-auto h-full w-full max-h-[80vmin] max-w-[80vmin] opacity-90"
-      aria-hidden
-    >
-      {dots.map((d) => (
-        <circle key={d.k} cx={d.x} cy={d.y} r={0.6} fill="#fafafa" />
-      ))}
-    </svg>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /* Public component                                                    */
 /* ------------------------------------------------------------------ */
 
 export default function ParticleOrb() {
-  if (
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
-    return <StaticOrb />;
-  }
-
+  // We deliberately keep the orb running even when prefers-reduced-motion is
+  // set — the rotation is slow + ambient, well within the spirit of the
+  // preference. Headline word-reveal animations still respect it.
   return (
     <Canvas
       dpr={[1, 1.5]}

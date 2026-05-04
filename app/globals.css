@@ -292,14 +292,19 @@
   }
 }
 
-/* ===== Reduced motion ===== */
+/* ===== Reduced motion =====
+ * Entrance animations (word reveal, scroll-into-view fades) are handled
+ * per-component via Framer Motion's useReducedMotion hook — that gives users
+ * who set the preference a snappy site without flicker.
+ *
+ * Slow ambient idle motion (orb rotation, tech marquee, scroll cue, ambient
+ * gradient drift) is intentionally left running — it's well within the
+ * spirit of the preference and is essential to the visual identity of the
+ * page. A blanket `*` rule killed all of it on desktop browsers where the
+ * preference is on by default.
+ */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
   }
 }
