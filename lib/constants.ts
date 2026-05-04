@@ -85,7 +85,11 @@ export const ABOUT = {
 };
 
 // ========== PROJECTS / FEATURED WORK ==========
-export type ProjectAccent = "coral" | "pink" | "magenta" | "violet";
+export type ProjectVisual =
+  | "browser-qa"
+  | "agent-network"
+  | "voice-tasks"
+  | "inbox-triage";
 
 export type Project = {
   slug: string;
@@ -93,9 +97,8 @@ export type Project = {
   description: string;
   stack: string[];
   href?: string;
-  /** Two-stop gradient placeholder when no image is provided. */
-  accentFrom: ProjectAccent;
-  accentTo: ProjectAccent;
+  /** Each project has a bespoke themed SVG animation. */
+  visual: ProjectVisual;
 };
 
 export const PROJECTS: Project[] = [
@@ -105,8 +108,7 @@ export const PROJECTS: Project[] = [
     description:
       "Autonomous testing agent that crawls product pages, validates checkout flows, and files Linear tickets for regressions. Cut QA cycle from 3 days to 4 hours.",
     stack: ["Playwright", "LangGraph", "Anthropic"],
-    accentFrom: "coral",
-    accentTo: "pink",
+    visual: "browser-qa",
   },
   {
     slug: "research-pipeline",
@@ -114,8 +116,7 @@ export const PROJECTS: Project[] = [
     description:
       "Orchestrates 6 specialized LLM agents (search, summarize, fact-check, synthesize, cite, draft) to produce publication-ready research briefs.",
     stack: ["LangChain", "pgvector", "Next.js"],
-    accentFrom: "pink",
-    accentTo: "magenta",
+    visual: "agent-network",
   },
   {
     slug: "voice-to-workflow",
@@ -123,8 +124,7 @@ export const PROJECTS: Project[] = [
     description:
       "Converts spoken meeting notes into structured Asana tasks with owners, deadlines, and Slack pings — all from a single 30-second recording.",
     stack: ["Whisper", "n8n", "OpenAI"],
-    accentFrom: "magenta",
-    accentTo: "violet",
+    visual: "voice-tasks",
   },
   {
     slug: "inbox-triage",
@@ -132,8 +132,7 @@ export const PROJECTS: Project[] = [
     description:
       "Reads, classifies, drafts, and schedules replies for 200+ daily emails. Hits 94% accuracy on category routing in production.",
     stack: ["Claude", "Gmail API", "FastAPI"],
-    accentFrom: "violet",
-    accentTo: "coral",
+    visual: "inbox-triage",
   },
 ];
 

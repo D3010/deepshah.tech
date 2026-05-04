@@ -3,23 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { PROJECTS, type Project, type ProjectAccent } from "@/lib/constants";
+import { PROJECTS, type Project } from "@/lib/constants";
+import { ProjectVisualSvg } from "@/components/sections/ProjectVisuals";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-const ACCENT_HEX: Record<ProjectAccent, string> = {
-  coral: "#ff6b6b",
-  pink: "#ff3d8a",
-  magenta: "#d946ef",
-  violet: "#8b5cf6",
-};
-
-function gradientFor(p: Project) {
-  const a = ACCENT_HEX[p.accentFrom];
-  const b = ACCENT_HEX[p.accentTo];
-  return `linear-gradient(135deg, ${a} 0%, ${b} 100%)`;
-}
 
 export function Projects() {
   return (
@@ -65,10 +53,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-15%" }}
               transition={{ duration: 0.9, delay: i * 0.1, ease: EASE }}
-              className={cn(
-                // Even-indexed cards (0, 2) sit higher; odd (1, 3) drop 80px on desktop.
-                i % 2 === 1 ? "md:mt-20" : undefined,
-              )}
+              className={cn(i % 2 === 1 ? "md:mt-20" : undefined)}
             >
               <ProjectCard project={p} />
             </motion.div>
@@ -86,27 +71,15 @@ function ProjectCard({ project }: { project: Project }) {
       className="group relative block"
       aria-label={`${project.title} — case study`}
     >
-      {/* Visual */}
+      {/* Visual frame */}
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-surface transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-white/[0.16]">
+        {/* Themed animated SVG */}
+        <ProjectVisualSvg variant={project.visual} />
+
+        {/* Gentle vignette so the card edges feel grounded */}
         <div
           aria-hidden
-          className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-          style={{ background: gradientFor(project) }}
-        />
-        {/* Subtle dot grid */}
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
-            backgroundSize: "22px 22px",
-          }}
-        />
-        {/* Inner shadow vignette */}
-        <div
-          aria-hidden
-          className="absolute inset-0"
+          className="pointer-events-none absolute inset-0"
           style={{
             background:
               "radial-gradient(ellipse at 50% 100%, rgba(8,8,10,0.55), transparent 65%)",

@@ -1,13 +1,19 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowUpRight, Send } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { RevealText } from "@/components/ui/RevealText";
 import { CONTACT } from "@/lib/constants";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+
+const ContactArt = dynamic(() => import("@/components/contact/ContactArt"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export function Contact() {
   const [email, setEmail] = useState("");
@@ -19,9 +25,6 @@ export function Contact() {
     e.preventDefault();
     if (!email || status === "sending") return;
     setStatus("sending");
-    // TODO: wire to NEXT_PUBLIC_CONTACT_ENDPOINT (Resend/Formspree/Loops). For
-    // now we no-op and report success — the legacy /api/contact endpoint is
-    // still available for the longer form on /contact (if/when added).
     const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
     try {
       if (endpoint) {
@@ -72,7 +75,7 @@ export function Contact() {
           <SectionLabel number="05" label="Let's Talk" />
         </motion.div>
 
-        {/* Massive gradient headline — fills width */}
+        {/* Massive gradient headline */}
         <h2
           id="contact-heading"
           className="text-balance font-semibold tracking-[-0.04em] leading-[0.95]"
@@ -118,84 +121,26 @@ export function Contact() {
           </button>
         </motion.form>
 
-        {/* Contact rows */}
-        <motion.ul
+        {/* 3D contact art — replaces the email/github/linkedin link rows */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
-          className="flex flex-col divide-y divide-white/[0.06] border-y border-white/[0.06]"
+          transition={{ duration: 1.2, delay: 0.2, ease: EASE }}
+          className="relative h-[60vh] min-h-[420px] w-full"
         >
-          {CONTACT.rows.map((row, i) => (
-            <ContactRow key={row.label} {...row} index={i} />
-          ))}
-        </motion.ul>
+          <ContactArt />
+          {/* Tagline overlay */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-center gap-1.5 pb-2 text-center">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--text-tertiary)]">
+              Move your cursor
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--text-tertiary)]">
+              {CONTACT.rows[0]?.value}
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function ContactRow({
-  label,
-  value,
-  href,
-  index,
-}: {
-  label: string;
-  value: string;
-  href: string;
-  index: number;
-}) {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const x = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 240, damping: 22, mass: 0.4 });
-
-  const handleMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const dx = e.clientX - (rect.left + rect.width / 2);
-    if (Math.abs(dx) > 240) {
-      x.set(0);
-      return;
-    }
-    x.set(dx * 0.05);
-  };
-
-  const isExternal = href.startsWith("http");
-
-  return (
-    <motion.li
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.7, delay: index * 0.06, ease: EASE }}
-    >
-      <motion.a
-        ref={ref}
-        href={href}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
-        onMouseMove={handleMove}
-        onMouseLeave={() => x.set(0)}
-        className="group relative flex flex-col items-start gap-3 py-7 transition-colors sm:flex-row sm:items-center sm:gap-8 sm:py-8"
-      >
-        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--text-tertiary)] sm:w-32">
-          {label}
-        </span>
-        <motion.span
-          style={{ x: sx }}
-          className="relative flex flex-1 items-center gap-3 text-2xl font-semibold tracking-tight text-fg/90 transition-all duration-300 group-hover:bg-gradient-brand group-hover:bg-clip-text group-hover:text-transparent sm:text-3xl md:text-4xl"
-        >
-          {value}
-          <ArrowUpRight className="h-6 w-6 flex-none text-[var(--text-tertiary)] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-fg md:h-7 md:w-7" />
-        </motion.span>
-        {/* Animated underline */}
-        <span
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-brand transition-transform duration-500 group-hover:scale-x-100"
-        />
-      </motion.a>
-    </motion.li>
   );
 }
