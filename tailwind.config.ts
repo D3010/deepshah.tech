@@ -9,34 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Light canvas — pure white with warm off-white surfaces
-        background: "#ffffff",
-        surface: "#fafaf8",
-        "surface-2": "#f5f3ee",
-        border: "rgba(10,10,10,0.08)",
-        // Coral / magenta / violet — the signature accent spectrum
+        // Dark canvas
+        background: "#08080a",
+        surface: "#0f0f12",
+        "surface-2": "#16161a",
+        border: "rgba(255,255,255,0.08)",
+        // Brand spectrum: coral → pink → magenta → violet
         primary: {
-          DEFAULT: "#ff3d7f",
+          DEFAULT: "#ff3d8a",
           50: "#ffe5ee",
-          400: "#ff6ba0",
-          500: "#ff3d7f",
-          600: "#e8286b",
+          400: "#ff6ba6",
+          500: "#ff3d8a",
+          600: "#e8286f",
           700: "#c01a57",
         },
         secondary: {
-          DEFAULT: "#ff6b4a",
-          400: "#ff8a70",
-          500: "#ff6b4a",
-          600: "#e4532f",
+          DEFAULT: "#ff6b6b",
+          400: "#ff8a8a",
+          500: "#ff6b6b",
+          600: "#e44d4d",
         },
         accent: {
-          DEFAULT: "#7c5cff",
-          400: "#9580ff",
-          500: "#7c5cff",
-          600: "#5f3fe0",
+          DEFAULT: "#8b5cf6",
+          400: "#a684ff",
+          500: "#8b5cf6",
+          600: "#7341e0",
         },
-        muted: "rgba(10,10,10,0.48)",
-        fg: "#0a0a0a",
+        magenta: {
+          DEFAULT: "#d946ef",
+          500: "#d946ef",
+          600: "#b829cc",
+        },
+        muted: "rgba(250,250,250,0.40)",
+        fg: "#fafafa",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -44,34 +49,36 @@ const config: Config = {
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
-        "xs": ["0.64rem", { lineHeight: "1rem" }],
-        "sm": ["0.8rem", { lineHeight: "1.25rem" }],
-        "base": ["1rem", { lineHeight: "1.6rem" }],
-        "lg": ["1.125rem", { lineHeight: "1.72rem" }],
-        "xl": ["1.5625rem", { lineHeight: "2rem" }],
-        "2xl": ["1.953rem", { lineHeight: "2.35rem" }],
-        "3xl": ["2.441rem", { lineHeight: "2.75rem" }],
-        "4xl": ["3.052rem", { lineHeight: "3.25rem" }],
-        "5xl": ["3.815rem", { lineHeight: "4rem" }],
-        "6xl": ["4.768rem", { lineHeight: "5rem" }],
-        "7xl": ["5.96rem", { lineHeight: "6rem" }],
+        xs: ["0.75rem", { lineHeight: "1rem" }],
+        sm: ["0.875rem", { lineHeight: "1.25rem" }],
+        base: ["1.0625rem", { lineHeight: "1.6" }],
+        lg: ["1.125rem", { lineHeight: "1.7" }],
+        xl: ["1.5rem", { lineHeight: "1.4" }],
+        "2xl": ["1.875rem", { lineHeight: "1.3" }],
+        "3xl": ["2.25rem", { lineHeight: "1.2" }],
+        "4xl": ["3rem", { lineHeight: "1.1" }],
+        "5xl": ["3.75rem", { lineHeight: "1.05" }],
+        "6xl": ["4.5rem", { lineHeight: "1" }],
+        "7xl": ["6rem", { lineHeight: "0.95" }],
       },
       backgroundImage: {
         "gradient-brand":
-          "linear-gradient(135deg, #ff6b4a 0%, #ff3d7f 50%, #7c5cff 100%)",
+          "linear-gradient(120deg, #ff6b6b 0%, #ff3d8a 45%, #d946ef 100%)",
         "gradient-brand-soft":
-          "linear-gradient(135deg, rgba(255,107,74,0.18) 0%, rgba(255,61,127,0.18) 50%, rgba(124,92,255,0.18) 100%)",
+          "linear-gradient(120deg, rgba(255,107,107,0.18) 0%, rgba(255,61,138,0.18) 45%, rgba(217,70,239,0.18) 100%)",
         "gradient-radial":
-          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,61,127,0.22), transparent 65%)",
-        "noise":
+          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,61,138,0.22), transparent 65%)",
+        "gradient-glow":
+          "radial-gradient(circle, rgba(255,61,138,0.25) 0%, transparent 70%)",
+        noise:
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        glow: "0 8px 32px rgba(255,61,127,0.22), 0 2px 6px rgba(255,61,127,0.18)",
-        "glow-lg": "0 16px 56px rgba(255,61,127,0.28), 0 4px 10px rgba(255,61,127,0.22)",
-        "glow-cyan": "0 8px 32px rgba(124,92,255,0.22)",
-        "glow-amber": "0 8px 32px rgba(255,107,74,0.22)",
-        "inner-glow": "inset 0 1px 0 0 rgba(255,255,255,0.6)",
+        glow: "0 8px 32px rgba(255,61,138,0.40)",
+        "glow-lg": "0 12px 48px rgba(255,61,138,0.50)",
+        "glow-violet": "0 8px 32px rgba(139,92,246,0.32)",
+        "glow-coral": "0 8px 32px rgba(255,107,107,0.32)",
+        "inner-glow": "inset 0 1px 0 0 rgba(255,255,255,0.06)",
       },
       keyframes: {
         float: {
@@ -94,9 +101,11 @@ const config: Config = {
           "0%,100%": { opacity: "1", transform: "scale(1)" },
           "50%": { opacity: "0.6", transform: "scale(1.3)" },
         },
-        "bounce-slow": {
-          "0%,100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(8px)" },
+        "scroll-cue": {
+          "0%": { transform: "translateY(-100%)", opacity: "0" },
+          "20%": { opacity: "1" },
+          "80%": { opacity: "1" },
+          "100%": { transform: "translateY(120%)", opacity: "0" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
@@ -106,9 +115,13 @@ const config: Config = {
           "0%": { transform: "translate3d(0,0,0)" },
           "100%": { transform: "translate3d(-50%,0,0)" },
         },
-        "fade-out": {
-          "0%": { opacity: "1" },
-          "100%": { opacity: "0" },
+        "marquee-reverse": {
+          "0%": { transform: "translate3d(-50%,0,0)" },
+          "100%": { transform: "translate3d(0,0,0)" },
+        },
+        "ambient-drift": {
+          "0%,100%": { transform: "translate3d(0,0,0)" },
+          "50%": { transform: "translate3d(-32px,40px,0)" },
         },
       },
       animation: {
@@ -117,13 +130,14 @@ const config: Config = {
         "gradient-x": "gradient-x 8s ease infinite",
         "gradient-spin": "gradient-spin 14s linear infinite",
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
-        "bounce-slow": "bounce-slow 2.5s ease-in-out infinite",
+        "scroll-cue": "scroll-cue 1.6s cubic-bezier(0.22, 1, 0.36, 1) infinite",
         shimmer: "shimmer 2.5s linear infinite",
-        marquee: "marquee 40s linear infinite",
-        "marquee-slow": "marquee 70s linear infinite",
+        marquee: "marquee 30s linear infinite",
+        "marquee-reverse": "marquee-reverse 40s linear infinite",
+        "ambient-drift": "ambient-drift 20s ease-in-out infinite",
       },
       transitionTimingFunction: {
-        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "out-expo": "cubic-bezier(0.22, 1, 0.36, 1)",
         "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
         "in-out-quad": "cubic-bezier(0.45, 0, 0.55, 1)",
       },

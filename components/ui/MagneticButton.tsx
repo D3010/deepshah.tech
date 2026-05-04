@@ -5,21 +5,22 @@ import { motion, useMotionValue, useSpring, type HTMLMotionProps } from "framer-
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "outline" | "ghost";
-type Size = "md" | "lg";
+type Size = "sm" | "md" | "lg";
 
 const baseClasses =
-  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium tracking-tight transition-colors duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 select-none";
+  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold tracking-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 select-none";
 
 const sizeClasses: Record<Size, string> = {
-  md: "h-12 px-6 text-sm",
+  sm: "h-9 px-4 text-[13px]",
+  md: "h-11 px-6 text-sm",
   lg: "h-14 px-8 text-[15px]",
 };
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "text-white shadow-glow hover:shadow-glow-lg [background:var(--accent-gradient)]",
+    "text-white shadow-glow hover:shadow-glow-lg [background:var(--gradient-brand)] [background-size:200%_100%] hover:[background-position:100%_50%]",
   outline:
-    "border border-black/[0.14] bg-transparent text-fg hover:border-black/[0.28] hover:bg-black/[0.04]",
+    "border border-white/[0.16] bg-transparent text-fg hover:border-primary-500 hover:bg-white/[0.03]",
   ghost: "text-fg/80 hover:text-fg",
 };
 

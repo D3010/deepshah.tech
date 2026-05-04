@@ -1,26 +1,38 @@
 "use client";
 
-import { TECH_STACK } from "@/lib/constants";
+import { TECH_ROW_1, TECH_ROW_2 } from "@/lib/constants";
+
+function Pill({ name }: { name: string }) {
+  return (
+    <span className="group inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-white/[0.08] px-[18px] py-2 font-mono text-[14px] text-[var(--text-tertiary)] transition-all duration-200 hover:scale-[1.05] hover:border-white/[0.2] hover:text-fg">
+      {name}
+    </span>
+  );
+}
 
 export function TechMarquee() {
-  const row = [...TECH_STACK, ...TECH_STACK];
+  // Duplicate items so the -50% translate produces a seamless loop
+  const row1 = [...TECH_ROW_1, ...TECH_ROW_1];
+  const row2 = [...TECH_ROW_2, ...TECH_ROW_2];
 
   return (
     <section
       aria-label="Tools and technologies I use"
-      className="relative border-y border-black/[0.08] bg-surface py-10"
+      className="relative py-16"
     >
-      <div className="mask-fade-x overflow-hidden">
-        <div className="pause-on-hover flex w-max items-center gap-12 will-change-transform">
-          <div className="flex w-max animate-marquee items-center gap-12 px-6">
-            {row.map((t, i) => (
-              <span
-                key={`${t.name}-${i}`}
-                className="group inline-flex items-center gap-2.5 whitespace-nowrap text-sm text-muted transition-colors hover:text-fg"
-              >
-                <t.Icon className="h-5 w-5 opacity-70 transition-opacity group-hover:opacity-100" />
-                <span className="font-medium tracking-wide">{t.name}</span>
-              </span>
+      <div className="mask-fade-x flex flex-col gap-4 overflow-hidden">
+        <div className="pause-on-hover">
+          <div className="flex w-max animate-marquee gap-3 will-change-transform">
+            {row1.map((t, i) => (
+              <Pill key={`r1-${t}-${i}`} name={t} />
+            ))}
+          </div>
+        </div>
+
+        <div className="pause-on-hover">
+          <div className="flex w-max animate-marquee-reverse gap-3 will-change-transform">
+            {row2.map((t, i) => (
+              <Pill key={`r2-${t}-${i}`} name={t} />
             ))}
           </div>
         </div>

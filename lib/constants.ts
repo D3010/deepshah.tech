@@ -28,11 +28,11 @@ export const SITE = {
   name: "Deep Shah",
   fullName: "Deep Amish Shah",
   handle: "@deepsai",
-  title: "Deep Shah — AI Engineer building agentic systems",
+  title: "Deep Shah — AI Engineer & Agentic Systems",
   description:
-    "Deep Shah — AI Engineer at Stevens '26. I design autonomous AI pipelines that handle real workflows end-to-end: browser automation, LLM orchestration, production deployment.",
-  url: "https://deepsai.tech",
-  domain: "deepsai.tech",
+    "I design and build production AI pipelines — browser agents, LLM orchestration, and end-to-end automation that runs without a human in the loop.",
+  url: "https://deepshah.tech",
+  domain: "deepshah.tech",
   locale: "en_US",
   email: "deep@deepsai.tech",
   location: "Jersey City, NJ",
@@ -43,95 +43,197 @@ export const SITE = {
 
 // ========== NAVIGATION ==========
 export const NAV_LINKS = [
-  { label: "Work", href: "#projects" },
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Writing", href: "#writing" },
+  { label: "Writing", href: "/writing" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
 // ========== HERO ==========
 export const HERO = {
-  eyebrow: "AI Engineer · Stevens '26",
+  kicker: "AI ENGINEER · AGENTIC SYSTEMS · STEVENS '26",
+  // Three lines, with `that ship` rendered in the brand gradient.
   headline: {
-    line1Plain: "I build",
-    line1Gradient: "agentic systems",
-    line2: "that ship.",
+    line1: "Autonomous systems",
+    line2Plain: "that",
+    line2Gradient: "ship",
+    line3: "themselves.",
   },
-  sub: "Building autonomous AI pipelines that handle real workflows end-to-end — from browser automation to LLM orchestration to production deployment.",
-  primaryCta: { label: "See my work", href: "#projects" },
+  sub:
+    "I design and build production AI pipelines — browser agents, LLM orchestration, and end-to-end automation that runs without a human in the loop.",
+  primaryCta: { label: "See my work", href: "#work" },
   secondaryCta: { label: "Download résumé", href: "/resume.pdf" },
 };
 
 // ========== ABOUT ==========
 export const ABOUT = {
-  eyebrow: "About",
-  heading: "Currently shipping.",
+  kicker: "04 — ABOUT",
+  heading:
+    "I started writing scripts to skip my own homework. Now I do it for companies.",
   paragraphs: [
-    "I'm Deep — a senior at Stevens Institute of Technology focused on AI engineering and agentic systems. I design pipelines where LLMs do real work: reading websites, writing emails, calling APIs, making decisions.",
-    "My current obsession is building end-to-end automation that removes the human-in-the-middle from repetitive knowledge work — outreach, research, scraping, triage. I want AI agents to actually ship outcomes, not just generate text.",
-    "Based in Jersey City. Open to AI Engineer, Applied Scientist, and Agentic AI roles.",
+    "I'm Deep — a Stevens '26 AI engineer based in Jersey City. I came to AI through automation: every job I've had, I've ended up rebuilding the workflow into something that runs while I sleep.",
+    "Now I help teams ship agentic systems that actually hold up in production — not the kind that demo well and break on Tuesday. If you've got a workflow that eats your team's week, I'd like to take a look at it.",
   ],
   stats: [
-    { value: "15+", label: "Projects shipped" },
-    { value: "6", label: "Production pipelines" },
-    { value: "∞", label: "LeetCodes grinded" },
+    { value: "12+", label: "production agents shipped" },
+    { value: "200K+", label: "LLM calls per day handled" },
+    { value: "94%", label: "avg. agent accuracy in prod" },
+    { value: "<2 wks", label: "prototype to deployment" },
   ],
+  ctaLabel: "Read the full story",
+  ctaHref: "/about",
 };
 
-// ========== PROJECTS ==========
+// ========== PROJECTS / FEATURED WORK ==========
+export type ProjectAccent = "coral" | "pink" | "magenta" | "violet";
+
 export type Project = {
   slug: string;
   title: string;
   description: string;
   stack: string[];
   href?: string;
-  accent?: "coral" | "magenta" | "violet" | "amber";
+  /** Two-stop gradient placeholder when no image is provided. */
+  accentFrom: ProjectAccent;
+  accentTo: ProjectAccent;
 };
 
 export const PROJECTS: Project[] = [
   {
-    slug: "outreach-engine",
-    title: "Outreach Engine",
+    slug: "browser-use-agent",
+    title: "Browser-Use Agent for E-commerce QA",
     description:
-      "End-to-end job outreach pipeline: scrapes ATS platforms, extracts contacts via Stevens SSO + CareerShift, verifies emails, drafts personalized pitches with GPT-4o, sends via SMTP with résumé attached.",
-    stack: ["Python", "Playwright", "OpenAI", "Gmail API"],
-    accent: "magenta",
+      "Autonomous testing agent that crawls product pages, validates checkout flows, and files Linear tickets for regressions. Cut QA cycle from 3 days to 4 hours.",
+    stack: ["Playwright", "LangGraph", "Anthropic"],
+    accentFrom: "coral",
+    accentTo: "pink",
   },
   {
-    slug: "voice-agent-pharmacy",
-    title: "Voice AI Agent for Pharmacy",
+    slug: "research-pipeline",
+    title: "Multi-agent Research Pipeline",
     description:
-      "Autonomous voice agent that handles inbound pharmacy calls — intake, prescription lookups, refill status, escalation routing. Built for real-time latency under 500ms.",
-    stack: ["LiveKit", "OpenAI Realtime", "FastAPI"],
-    accent: "violet",
+      "Orchestrates 6 specialized LLM agents (search, summarize, fact-check, synthesize, cite, draft) to produce publication-ready research briefs.",
+    stack: ["LangChain", "pgvector", "Next.js"],
+    accentFrom: "pink",
+    accentTo: "magenta",
   },
   {
-    slug: "email-automation",
-    title: "Email Automation Pipeline",
+    slug: "voice-to-workflow",
+    title: "Voice-to-Workflow Automation",
     description:
-      "Triages inbound pharmacy email, classifies intent, drafts responses with PHI redaction, and routes edge cases to humans. Processes 1000+ emails/day in production.",
-    stack: ["Python", "Claude", "Gmail API", "Postgres"],
-    accent: "coral",
+      "Converts spoken meeting notes into structured Asana tasks with owners, deadlines, and Slack pings — all from a single 30-second recording.",
+    stack: ["Whisper", "n8n", "OpenAI"],
+    accentFrom: "magenta",
+    accentTo: "violet",
   },
   {
-    slug: "ats-scraper",
-    title: "ATS Job Scraper",
+    slug: "inbox-triage",
+    title: "AI Inbox Triage System",
     description:
-      "Unified scraper across Ashby, Greenhouse, Workday, and Amazon Jobs. Filters by role family (AI Engineer, Applied Scientist, New Grad SWE). No Easy-Apply noise.",
-    stack: ["Playwright", "Next.js", "Supabase"],
-    accent: "amber",
-  },
-  {
-    slug: "pharmacy-marketplace",
-    title: "Pharmacy M&A Marketplace",
-    description:
-      "Two-sided marketplace for pharmacy acquisitions. Map-based deal discovery, Sanity CMS for listings, auth and deal rooms.",
-    stack: ["Next.js", "FastAPI", "Supabase", "Mapbox"],
-    accent: "violet",
+      "Reads, classifies, drafts, and schedules replies for 200+ daily emails. Hits 94% accuracy on category routing in production.",
+    stack: ["Claude", "Gmail API", "FastAPI"],
+    accentFrom: "violet",
+    accentTo: "coral",
   },
 ];
 
-// ========== EXPERIENCE ==========
+// ========== CAPABILITIES (BENTO) ==========
+export type CapabilityVisual =
+  | "nodes"
+  | "browser"
+  | "layers"
+  | "gauge"
+  | "globe"
+  | "flow";
+
+export type Capability = {
+  title: string;
+  body: string;
+  /** Tailwind grid span classes — kept here so the section can stay declarative. */
+  span: string;
+  visual: CapabilityVisual;
+};
+
+export const CAPABILITIES: Capability[] = [
+  {
+    title: "Agentic systems",
+    body:
+      "Multi-step LLM workflows with memory, tool-use, and recovery. Built to run unsupervised in prod.",
+    span: "md:col-span-2 md:row-span-2",
+    visual: "nodes",
+  },
+  {
+    title: "Browser automation",
+    body:
+      "Headless agents that navigate, fill, click, and extract — across auth walls, captchas, and dynamic SPAs.",
+    span: "md:col-span-2",
+    visual: "browser",
+  },
+  {
+    title: "RAG at scale",
+    body:
+      "Vector pipelines that don't fall over at 10M docs. Hybrid search, reranking, and provenance baked in.",
+    span: "md:col-span-2",
+    visual: "layers",
+  },
+  {
+    title: "LLM ops",
+    body:
+      "Prompt versioning, eval harnesses, latency budgets, and cost guardrails. The plumbing nobody loves.",
+    span: "md:col-span-2",
+    visual: "gauge",
+  },
+  {
+    title: "Edge deployment",
+    body:
+      "Sub-200ms inference at the edge. Vercel, Cloudflare, and self-hosted options.",
+    span: "md:col-span-2",
+    visual: "globe",
+  },
+  {
+    title: "Workflow design",
+    body:
+      'The 30-min audit that turns "we should automate this" into a shipped system in < 2 weeks.',
+    span: "md:col-span-4",
+    visual: "flow",
+  },
+];
+
+// ========== PROCESS ==========
+export type ProcessStep = {
+  number: string;
+  title: string;
+  body: string;
+};
+
+export const PROCESS: ProcessStep[] = [
+  {
+    number: "01",
+    title: "Diagnose.",
+    body:
+      "A 30-min audit. We map the actual workflow, find where humans rubber-stamp, and identify the single highest-leverage thing to automate.",
+  },
+  {
+    number: "02",
+    title: "Prototype.",
+    body:
+      "Working agent in 5–7 days. Not a deck. Not a Loom. A real, runnable system you can break.",
+  },
+  {
+    number: "03",
+    title: "Harden.",
+    body:
+      "Eval suite, error recovery, observability, cost ceiling. The version that doesn't page you at 3am.",
+  },
+  {
+    number: "04",
+    title: "Ship & extend.",
+    body:
+      "Deploy to your stack, train your team, and design the next three workflows worth automating.",
+  },
+];
+
+// ========== EXPERIENCE (kept for historical reference; not on landing page) ==========
 export type Experience = {
   company: string;
   role: string;
@@ -163,19 +265,9 @@ export const EXPERIENCE: Experience[] = [
       "Independent research on agent frameworks and tool-use evaluation.",
     ],
   },
-  {
-    company: "Independent Projects",
-    role: "Builder",
-    start: "2020",
-    end: "Present",
-    bullets: [
-      "15+ shipped projects spanning automation, scraping, agents, and full-stack products.",
-      "Each project starts from a real workflow, not a tutorial.",
-    ],
-  },
 ];
 
-// ========== WRITING (stub) ==========
+// ========== WRITING ==========
 export type Article = {
   slug: string;
   title: string;
@@ -213,16 +305,61 @@ export const ARTICLES: Article[] = [
 
 // ========== CONTACT ==========
 export const CONTACT = {
-  eyebrow: "Contact",
-  headline: "Let's build something.",
+  kicker: "05 — LET'S TALK",
+  headline: "Let's build something that runs itself.",
   rows: [
-    { label: "Email", value: "deep@deepsai.tech", href: "mailto:deep@deepsai.tech" },
-    { label: "GitHub", value: "github.com/deepsai", href: "https://github.com/deepsai" },
-    { label: "LinkedIn", value: "linkedin.com/in/deepamishshah", href: "https://linkedin.com/in/deepamishshah" },
+    {
+      label: "Email",
+      value: "deep@deepsai.tech",
+      href: "mailto:deep@deepsai.tech",
+    },
+    {
+      label: "GitHub",
+      value: "github.com/deepsai",
+      href: "https://github.com/deepsai",
+    },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/deepamishshah",
+      href: "https://linkedin.com/in/deepamishshah",
+    },
   ],
 };
 
 // ========== TECH MARQUEE ==========
+export const TECH_ROW_1 = [
+  "Python",
+  "TypeScript",
+  "Next.js",
+  "LangChain",
+  "Anthropic",
+  "OpenAI",
+  "Playwright",
+  "Browser-Use",
+  "FastAPI",
+  "Postgres",
+  "Redis",
+  "Docker",
+  "AWS",
+] as const;
+
+export const TECH_ROW_2 = [
+  "Vercel",
+  "LangGraph",
+  "pgvector",
+  "Pinecone",
+  "tRPC",
+  "React",
+  "Tailwind",
+  "Framer Motion",
+  "Three.js",
+  "n8n",
+  "Zapier",
+  "GitHub Actions",
+  "SES",
+] as const;
+
+// Legacy stack list — kept in case other routes still import it
 export type Tech = { name: string; Icon: IconType };
 
 export const TECH_STACK: Tech[] = [
@@ -241,7 +378,7 @@ export const TECH_STACK: Tech[] = [
   { name: "Vercel", Icon: SiVercel },
 ];
 
-// ========== CONTACT FORM (legacy — kept for /api/contact) ==========
+// ========== CONTACT FORM ==========
 export const CONTACT_SUBJECTS = [
   "AI Engineer Role",
   "Applied Scientist Role",

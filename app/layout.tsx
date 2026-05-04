@@ -17,7 +17,7 @@ const geistMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#08080a",
   width: "device-width",
   initialScale: 1,
 };

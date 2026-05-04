@@ -1,123 +1,136 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Download, ChevronDown } from "lucide-react";
-import { ParticleField } from "@/components/effects/ParticleField";
-import { Eyebrow } from "@/components/ui/Eyebrow";
-import { MagneticButton } from "@/components/ui/MagneticButton";
+import dynamic from "next/dynamic";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Download } from "lucide-react";
+import { GradientButton } from "@/components/ui/GradientButton";
+import { OutlineButton } from "@/components/ui/OutlineButton";
+import { RevealText } from "@/components/ui/RevealText";
+import { HeroBackground } from "@/components/hero/HeroBackground";
 import { HERO } from "@/lib/constants";
-import { fadeUp, staggerContainer, EASE_ANTIGRAV } from "@/lib/animations";
 import { scrollToId } from "@/lib/utils";
 
+// R3F canvas is client-only — never SSR.
+const ParticleOrb = dynamic(() => import("@/components/hero/ParticleOrb"), {
+  ssr: false,
+  loading: () => null,
+});
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export function Hero() {
+  const reduce = useReducedMotion();
+
   return (
     <section
       id="home"
       aria-label="Introduction"
-      className="relative isolate flex min-h-[100svh] snap-start flex-col items-stretch justify-center overflow-hidden pt-[var(--nav-h)]"
+      className="relative isolate flex min-h-[100dvh] flex-col items-stretch justify-center overflow-hidden"
     >
-      <div aria-hidden className="absolute inset-0 -z-20">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 50% at 30% 35%, rgba(255,61,127,0.10), transparent 65%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 80% 80%, rgba(124,92,255,0.10), transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,107,74,0.06), transparent 70%)",
-          }}
-        />
+      <HeroBackground />
+
+      {/* Orb canvas — sits between background glows and the headline */}
+      <div className="absolute inset-0 -z-[5]">
+        <ParticleOrb />
       </div>
 
-      <div className="absolute inset-0 -z-10">
-        <ParticleField />
-      </div>
-      <div className="noise-overlay -z-10" />
-
-      <div className="container-page relative flex flex-1 flex-col items-center justify-center text-center">
-        <motion.div
-          variants={staggerContainer(0.14, 0.05)}
-          initial="hidden"
-          animate="show"
-          className="flex flex-col items-center gap-8"
+      <div className="container-page relative z-10 flex flex-1 flex-col items-center justify-center pt-[var(--nav-h)] text-center">
+        {/* Mono kicker */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+          className="mb-10 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--text-tertiary)]"
         >
-          <motion.div variants={fadeUp}>
-            <Eyebrow>{HERO.eyebrow}</Eyebrow>
-          </motion.div>
+          <span
+            aria-hidden
+            className="inline-block h-1.5 w-1.5 rounded-full bg-gradient-brand"
+          />
+          {HERO.kicker}
+        </motion.p>
 
-          <motion.h1
-            variants={fadeUp}
-            className="display max-w-5xl text-balance"
-          >
-            <span className="block">{HERO.headline.line1Plain}</span>
-            <motion.span
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.4, ease: EASE_ANTIGRAV, delay: 0.35 }}
-              className="text-gradient-strong block pb-[0.08em] leading-[1.05]"
-            >
-              {HERO.headline.line1Gradient}
-            </motion.span>
-            <span className="block">{HERO.headline.line2}</span>
-          </motion.h1>
+        {/* Headline — three lines, word-by-word reveal */}
+        <h1 className="display max-w-[16ch] text-balance">
+          <span className="block">
+            <RevealText delay={0.25}>{HERO.headline.line1}</RevealText>
+          </span>
+          <span className="block">
+            <RevealText delay={0.5}>
+              {HERO.headline.line2Plain}{" "}
+              <span className="text-gradient-strong">
+                {HERO.headline.line2Gradient}
+              </span>
+            </RevealText>
+          </span>
+          <span className="block">
+            <RevealText delay={0.75}>{HERO.headline.line3}</RevealText>
+          </span>
+        </h1>
 
-          <motion.p
-            variants={fadeUp}
-            className="max-w-2xl text-balance text-base leading-relaxed text-fg/65 md:text-lg"
-          >
-            {HERO.sub}
-          </motion.p>
+        {/* Sub-copy */}
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: reduce ? 0.001 : 0.9,
+            delay: reduce ? 0 : 1.55,
+            ease: EASE,
+          }}
+          className="mt-8 max-w-2xl text-balance text-base leading-relaxed text-[var(--text-secondary)] md:text-lg"
+        >
+          {HERO.sub}
+        </motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            className="mt-2 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: reduce ? 0.001 : 0.9,
+            delay: reduce ? 0 : 1.75,
+            ease: EASE,
+          }}
+          className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+        >
+          <GradientButton
+            as="a"
+            href={HERO.primaryCta.href}
+            size="lg"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToId(HERO.primaryCta.href.replace("#", ""));
+            }}
           >
-            <MagneticButton
-              as="a"
-              href={HERO.primaryCta.href}
-              variant="primary"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId(HERO.primaryCta.href.replace("#", ""));
-              }}
-            >
-              {HERO.primaryCta.label}
-              <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-            </MagneticButton>
-            <MagneticButton
-              as="a"
-              href={HERO.secondaryCta.href}
-              variant="outline"
-              download
-            >
-              <Download className="h-4 w-4" />
-              {HERO.secondaryCta.label}
-            </MagneticButton>
-          </motion.div>
+            {HERO.primaryCta.label}
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </GradientButton>
+          <OutlineButton
+            as="a"
+            href={HERO.secondaryCta.href}
+            size="lg"
+            download
+          >
+            <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+            {HERO.secondaryCta.label}
+          </OutlineButton>
         </motion.div>
       </div>
 
-      <button
-        type="button"
-        aria-label="Scroll to about"
-        onClick={() => scrollToId("about")}
-        data-cursor="link"
-        className="group absolute bottom-8 left-1/2 -translate-x-1/2 text-muted transition-opacity hover:text-fg"
+      {/* Scroll cue — vertical line + dot animation + "SCROLL" */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 2.0, ease: EASE }}
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-3"
+        aria-hidden
       >
-        <span className="sr-only">Scroll</span>
-        <ChevronDown className="h-5 w-5 animate-bounce-slow" />
-      </button>
+        <div className="relative h-8 w-px overflow-hidden bg-white/10">
+          <span className="absolute left-0 top-0 h-2 w-px bg-gradient-brand animate-scroll-cue" />
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--text-tertiary)]">
+          Scroll
+        </span>
+      </motion.div>
     </section>
   );
 }
