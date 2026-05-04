@@ -34,7 +34,9 @@ export const SITE = {
   url: "https://deepshah.tech",
   domain: "deepshah.tech",
   locale: "en_US",
-  email: "deep@deepsai.tech",
+  email: "deep@deepshah.tech",
+  phone: "+1 (551) 260-7414",
+  phoneHref: "tel:+15512607414",
   location: "Jersey City, NJ",
   resumeUrl: "/resume.pdf",
   photoUrl: "/images/deep-shah.jpeg",
@@ -101,6 +103,8 @@ export type Project = {
   visual: ProjectVisual;
 };
 
+const GITHUB_URL = "https://github.com/D3010";
+
 export const PROJECTS: Project[] = [
   {
     slug: "browser-use-agent",
@@ -109,6 +113,7 @@ export const PROJECTS: Project[] = [
       "Autonomous testing agent that crawls product pages, validates checkout flows, and files Linear tickets for regressions. Cut QA cycle from 3 days to 4 hours.",
     stack: ["Playwright", "LangGraph", "Anthropic"],
     visual: "browser-qa",
+    href: GITHUB_URL,
   },
   {
     slug: "research-pipeline",
@@ -117,6 +122,7 @@ export const PROJECTS: Project[] = [
       "Orchestrates 6 specialized LLM agents (search, summarize, fact-check, synthesize, cite, draft) to produce publication-ready research briefs.",
     stack: ["LangChain", "pgvector", "Next.js"],
     visual: "agent-network",
+    href: GITHUB_URL,
   },
   {
     slug: "voice-to-workflow",
@@ -125,6 +131,7 @@ export const PROJECTS: Project[] = [
       "Converts spoken meeting notes into structured Asana tasks with owners, deadlines, and Slack pings — all from a single 30-second recording.",
     stack: ["Whisper", "n8n", "OpenAI"],
     visual: "voice-tasks",
+    href: GITHUB_URL,
   },
   {
     slug: "inbox-triage",
@@ -133,6 +140,7 @@ export const PROJECTS: Project[] = [
       "Reads, classifies, drafts, and schedules replies for 200+ daily emails. Hits 94% accuracy on category routing in production.",
     stack: ["Claude", "Gmail API", "FastAPI"],
     visual: "inbox-triage",
+    href: GITHUB_URL,
   },
 ];
 
@@ -309,18 +317,18 @@ export const CONTACT = {
   rows: [
     {
       label: "Email",
-      value: "deep@deepsai.tech",
-      href: "mailto:deep@deepsai.tech",
+      value: "deep@deepshah.tech",
+      href: "mailto:deep@deepshah.tech",
+    },
+    {
+      label: "Phone",
+      value: "+1 (551) 260-7414",
+      href: "tel:+15512607414",
     },
     {
       label: "GitHub",
-      value: "github.com/deepsai",
-      href: "https://github.com/deepsai",
-    },
-    {
-      label: "LinkedIn",
-      value: "linkedin.com/in/deepamishshah",
-      href: "https://linkedin.com/in/deepamishshah",
+      value: "github.com/D3010",
+      href: "https://github.com/D3010",
     },
   ],
 };
@@ -390,10 +398,11 @@ export type ContactSubject = (typeof CONTACT_SUBJECTS)[number];
 
 // ========== SOCIAL ==========
 export const SOCIAL = {
-  github: "https://github.com/deepsai",
+  github: "https://github.com/D3010",
   linkedin: "https://linkedin.com/in/deepamishshah",
   twitter: "https://twitter.com/deepsai",
   email: `mailto:${SITE.email}`,
+  phone: SITE.phoneHref,
 };
 
 export const SOCIAL_LINKS = [

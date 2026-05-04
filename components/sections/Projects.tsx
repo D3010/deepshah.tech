@@ -32,14 +32,16 @@ export function Projects() {
             </h2>
           </motion.div>
           <motion.a
-            href="/work"
+            href="https://github.com/D3010"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
             className="group inline-flex items-center gap-1.5 self-start text-sm text-[var(--text-secondary)] transition-colors hover:text-fg md:self-end"
           >
-            View all
+            View all on GitHub
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </motion.a>
         </div>
@@ -65,11 +67,15 @@ export function Projects() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const href = project.href ?? "https://github.com/D3010";
+  const isExternal = href.startsWith("http");
   return (
     <a
-      href={project.href ?? "#"}
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="group relative block"
-      aria-label={`${project.title} — case study`}
+      aria-label={`${project.title} — open on GitHub`}
     >
       {/* Visual frame */}
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-surface transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-white/[0.16]">
